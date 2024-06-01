@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/Trip Tailor.png";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
 
-    const user = ''
+    const {user} = useAuth();
 
     const navlinks = <>
         <li><NavLink to='/'>Home</NavLink></li>

@@ -5,8 +5,16 @@ import { Link } from "react-router-dom";
 import Lottie from "react-lottie";
 import loginAnimation from "../../../../assets/Animations/loginPageAnimation.json";
 import 'animate.css';
+import useAuth from "../../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
+import { ImSpinner9 } from "react-icons/im";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
+
+    const { signInUser, loading, user } = useAuth();
+
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const defaultOptions = {
         loop: true,
@@ -16,12 +24,30 @@ const Login = () => {
 
     setTimeout(() => {
         document.getElementById('loginAnimation').classList.add('hidden');
-        document.getElementById('hero').classList.remove('hidden')    
-    }, 2500)
+        document.getElementById('hero').classList.remove('hidden')
+    }, 2500);
+
+    const onSubmit = (data) => {
+        // console.log(data);
+        const email = data.email;
+        const password = data.password;
+        if (user) {
+            toast.error("Already Logged In");
+            reset();
+            return
+        }
+        else {
+            // signInUser(email, password)
+            //     .then(result => {
+
+            //     })
+        }
+    }
 
 
     return (
         <div className="bg-ttPrimaryBg overflow-y-hidden  pb-20">
+            <ToastContainer></ToastContainer>
             <div className="hero" style={{ backgroundImage: `url(${loginBanner})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -49,14 +75,15 @@ const Login = () => {
 
                     {/* form start */}
                     <div className="card shrink-0 w-full lg:w-3/5 shadow-2xl">
-                        <form className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                             {/* email */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email<span className="text-red-500">*</span></span>
                                 </label>
-                                <input name="email" type="email" placeholder="Enter your email address" className="input input-bordered" required />
+                                <input {...register("email", { required: true })} type="email" placeholder="Enter your email address" className="input input-bordered" />
+                                {errors.email && <span className="text-red-500">required email</span>}
                             </div>
 
 
@@ -65,7 +92,8 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password<span className="text-red-500">*</span></span>
                                 </label>
-                                <input name="password" type="password" placeholder="Enter your password" className="input input-bordered" required />
+                                <input {...register("password", { required: true })} type="password" placeholder="Enter your password" className="input input-bordered" />
+                                {errors.password && <span className="text-red-500">required email</span>}
                             </div>
 
 
@@ -75,7 +103,13 @@ const Login = () => {
                             </label>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">
+                                    {
+                                        loading ? <ImSpinner9 className="animate-spin" />
+                                            :
+                                            'Login'
+                                    }
+                                </button>
                             </div>
                         </form>
 
@@ -88,11 +122,11 @@ const Login = () => {
                 </div>
             </div>
 
-            <div id="loginAnimation"> 
-            <Lottie options={defaultOptions}
-                height={400}
-                width={400}>
-            </Lottie>
+            <div id="loginAnimation">
+                <Lottie options={defaultOptions}
+                    height={400}
+                    width={400}>
+                </Lottie>
             </div>
         </div>
     );
