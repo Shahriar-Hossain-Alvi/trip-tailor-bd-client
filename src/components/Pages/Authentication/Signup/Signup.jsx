@@ -3,7 +3,7 @@ import signupBanner from "../../../../assets/images/signupBanner.jpg";
 import { Link } from "react-router-dom";
 const Signup = () => {
     return (
-        <div className="bg-ttPrimaryBg">
+        <div className="bg-ttPrimaryBg pb-20">
             <div className="hero" style={{ backgroundImage: `url(${signupBanner})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -13,7 +13,7 @@ const Signup = () => {
                 </div>
             </div>
 
-            <div className="text-center mt-5">
+            <div className="text-center my-5">
                 <h2 className="text-2xl font-semibold">Sign Up with your email or use google sign in below</h2>
             </div>
 

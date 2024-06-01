@@ -1,12 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FcGoogle } from "react-icons/fc";
-import signupBanner from "../../../../assets/images/signupBanner.jpg";
+import loginBanner from "../../../../assets/images/signupBanner.jpg";
 import { Link } from "react-router-dom";
+import Lottie from "react-lottie";
+import loginAnimation from "../../../../assets/Animations/loginPageAnimation.json";
+import 'animate.css';
 
 const Login = () => {
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: loginAnimation,
+    };
+
+    setTimeout(() => {
+        document.getElementById('loginAnimation').classList.add('hidden');
+        document.getElementById('hero').classList.remove('hidden')    
+    }, 2500)
+
+
     return (
-        <div className="bg-ttPrimaryBg">
-            <div className="hero" style={{ backgroundImage: `url(${signupBanner})` }}>
+        <div className="bg-ttPrimaryBg overflow-y-hidden  pb-20">
+            <div className="hero" style={{ backgroundImage: `url(${loginBanner})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md py-24">
@@ -15,22 +31,22 @@ const Login = () => {
                 </div>
             </div>
 
-            <div className="text-center mt-5">
+            <div className="text-center mt-5 mb-6">
                 <h2 className="text-2xl font-semibold">Login with your email or use google sign in below</h2>
             </div>
 
-            <div className="hero">
+            <div id="hero" className="hero hidden animate__animated animate__fadeInUp">
                 <div className="hero-content w-full flex flex-col lg:flex-row">
 
                     {/* google sign in */}
                     <div className="flex flex-col  items-center w-full lg:w-2/5 my-5">
                         <h3 className="text-lg font-medium text-center mb-3">Click the google icon to sign in with google</h3>
                         <button className="btn btn-circle border bg-transparent border-ttTerTiary hover:bg-transparent hover:border-ttSecondary rounded-full">
-                        <FcGoogle className="w-10 h-10" />
+                            <FcGoogle className="w-10 h-10" />
                         </button>
                     </div>
 
-                    
+
                     {/* form start */}
                     <div className="card shrink-0 w-full lg:w-3/5 shadow-2xl">
                         <form className="card-body">
@@ -70,6 +86,13 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="loginAnimation"> 
+            <Lottie options={defaultOptions}
+                height={400}
+                width={400}>
+            </Lottie>
             </div>
         </div>
     );
