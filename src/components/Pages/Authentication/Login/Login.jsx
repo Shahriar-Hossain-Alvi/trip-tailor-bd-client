@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FcGoogle } from "react-icons/fc";
 import loginBanner from "../../../../assets/images/signupBanner.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "react-lottie";
 import loginAnimation from "../../../../assets/Animations/loginPageAnimation.json";
 import 'animate.css';
@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 const Login = () => {
 
     const { signInUser, loading, user } = useAuth();
+    const navigate = useNavigate();
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -25,7 +26,7 @@ const Login = () => {
     setTimeout(() => {
         document.getElementById('loginAnimation').classList.add('hidden');
         document.getElementById('hero').classList.remove('hidden')
-    }, 2500);
+    }, 2400);
 
     const onSubmit = (data) => {
         // console.log(data);
@@ -37,10 +38,19 @@ const Login = () => {
             return
         }
         else {
-            // signInUser(email, password)
-            //     .then(result => {
-
-            //     })
+            signInUser(email, password)
+                .then(result => {
+                    if (result.user) {
+                        toast.success('Login Successful');
+                        setTimeout(() => {
+                            navigate('/');
+                        }, 2500)
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    toast.error(error);
+                })
         }
     }
 

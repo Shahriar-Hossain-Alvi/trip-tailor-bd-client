@@ -4,7 +4,11 @@ import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
 
-    const {user} = useAuth();
+    const {user, logoutUser} = useAuth();
+
+    const handleLogout = ()=>{
+        logoutUser();
+    }
 
     const navlinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -35,23 +39,24 @@ const Navbar = () => {
                         user ? <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
                                 </div>
                             </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-ttPrimary rounded-box w-52 text-center space-y-1">
-                                <li>Name</li>
-                                <li>Email</li>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-ttPrimary rounded-box min-w-52 text-center space-y-1">
+                                <li>Name: {user?.displayName}</li>
+                                <li>Email: {user?.email}</li>
                                 <li><NavLink to='/das'>Dashboard</NavLink></li>
-                                <li><NavLink>Offer</NavLink></li>
+                                <li><NavLink to='/offer'>Offer</NavLink></li>
+                                <button onClick={handleLogout} className="btn btn-sm bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:text-ttSecondary hover:border-ttSecondary">Logout</button>
                             </ul>
                         </div>
                             :
                             <div className="flex gap-2">
                                 <Link to='/login'>
-                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary">Login</button>
+                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Login</button>
                                 </Link>
                                 <Link to='/signup'>
-                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary">Sign Up</button>
+                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Sign Up</button>
                                 </Link>
                             </div>
                     }
