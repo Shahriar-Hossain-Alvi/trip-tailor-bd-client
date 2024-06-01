@@ -6,3 +6,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* custom css */
+
+#navbar a.active{
+color: #ff7c5b;
+background-color: transparent;
+position: relative;
+}
+
+#navbar .navbar-center a.active::before {
+position: absolute;
+content: '';
+width: 100%;
+border-bottom: 8px solid #ff7c5b;
+bottom: -23px;
+clip-path: polygon(50% 0%, 60% 60%, 90% 60%, 100% 100%, 0 100%, 10% 60%, 40% 60%);
+}
+
+#navbar a:hover{
+    color: #ff7c5b;
+    transition: linear 0.2s;
+}
