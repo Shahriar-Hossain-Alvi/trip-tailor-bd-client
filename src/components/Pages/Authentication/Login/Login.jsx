@@ -2,7 +2,7 @@
 
 const Login = () => {
     return (
-        <div>
+        <div className="bg-ttPrimaryBg">
             <h2>login</h2>
         </div>
     );

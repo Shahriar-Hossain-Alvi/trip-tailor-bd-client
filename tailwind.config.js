@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         'montserrat': ["Montserrat", "sans-serif"],
-        'anton': ["Anton", "sans-serif"]
+        'playfairDisplay': ["Playfair Display", "serif"]
       },
       colors: {
        ttPrimaryBg: '#F9F9F9',
