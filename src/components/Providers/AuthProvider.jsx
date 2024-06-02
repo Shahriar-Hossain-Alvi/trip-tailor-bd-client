@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 
-export const AuthContext = createContext(null);
 const auth = getAuth(app);
+export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 
@@ -41,6 +42,16 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    // save user
+    const saveUser = async userInfo => {
+        const data = await axios.put(
+            'http://localhost:5000/users',
+            userInfo
+        )
+        // console.log(data);
+        return data;
+    }
+
     //observer
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -58,10 +69,12 @@ const AuthProvider = ({ children }) => {
         createUser,
         user,
         loading,
+        setLoading,
         googleSignIn,
         signInUser,
         logoutUser,
-        updateUserProfile
+        updateUserProfile,
+        saveUser
     }
 
     return (

@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import signupBanner from "../../../../assets/images/signupBanner.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -14,14 +14,25 @@ const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_ap
 
 
 const Signup = () => {
-
-    const { createUser, loading, updateUserProfile } = useAuth();
+    const { user, saveUser, createUser, loading, updateUserProfile, googleSignIn } = useAuth();
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
-    // react-hook-form submit function
+    // create user using email-password and update name + photo then upload data to DB
     const onSubmit = async (data) => {
+
+        if (user) {
+            toast.error('Already signed in');
+            reset();
+            return setTimeout(() => {
+                navigate(from, { replace: true });
+            }, 1500)
+        }
+
         //get the data from the form
         const name = data.name;
         const email = data.email;
@@ -36,17 +47,26 @@ const Signup = () => {
         });
         const imgURL = res.data.data.display_url;
 
+        const userInfo = {
+            name, email, imgURL, role: 'tourist', status: 'verified'
+        };
 
         //if image upload is successful then create user
         if (res.data.success) {
             createUser(email, password)
                 .then(result => {
-                    toast.success('Profile created successfully✔');
                     //if signup is successful then update profile
                     if (result.user) {
                         updateUserProfile(name, imgURL)
                             .then(() => {
-                                toast.success('Profile updated');
+                                //after updating profile send data to the DB
+
+                                saveUser(userInfo);
+                                toast.success('Profile created successfully');
+                                setTimeout(() => {
+                                    navigate(from, { replace: true });
+                                }, 2500)
+
                             })
                             .catch(error => {
                                 console.log(error);
@@ -60,6 +80,35 @@ const Signup = () => {
                     toast.error(error);
                 })
         }
+    }
+
+
+    //sign in user with google and upload data to db
+    const handleGoogleSignIn = () => {
+        if(user){
+            toast.error("Already Signed In");
+            return;
+        }
+        googleSignIn()
+            .then(result => {
+                const userInfo = {
+                    name: result.user?.displayName,
+                    email: result.user?.email,
+                    imgURL: result.user?.photoURL,
+                    role: 'tourist',
+                    status: 'verified'
+                };
+                saveUser(userInfo);
+
+                toast.success("Sign In successful");
+                setTimeout(() => {
+                    navigate(from, { replace: true });
+                }, 2500)
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error(error);
+            })
     }
 
     return (
@@ -84,7 +133,7 @@ const Signup = () => {
                     {/* google sign in */}
                     <div className="flex flex-col  items-center w-full lg:w-2/5 my-5">
                         <h3 className="text-lg font-medium text-center mb-3">Click the google icon to sign in with google</h3>
-                        <button className="btn btn-circle border bg-transparent border-ttTerTiary hover:bg-transparent hover:border-ttSecondary rounded-full">
+                        <button onClick={handleGoogleSignIn} className="btn btn-circle border bg-transparent border-ttTerTiary hover:bg-transparent hover:border-ttSecondary rounded-full">
                             <FcGoogle className="w-10 h-10" />
                         </button>
                     </div>
@@ -143,7 +192,7 @@ const Signup = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">
+                                <button disabled={loading} className="btn btn-primary">
                                     {
                                         loading ? <ImSpinner9 className="animate-spin" />
                                             :
@@ -152,7 +201,6 @@ const Signup = () => {
                                 </button>
                             </div>
                         </form>
-
 
                         {/* login page link */}
                         <div className="text-center mb-10">

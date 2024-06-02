@@ -42,9 +42,9 @@ const Navbar = () => {
                                     <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
                                 </div>
                             </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-ttPrimary rounded-box min-w-52 text-center space-y-1">
-                                <li>Name: {user?.displayName}</li>
-                                <li>Email: {user?.email}</li>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-ttPrimary rounded-box min-w-52  space-y-1">
+                                <li className="pl-3 mb-1">Name: {user?.displayName}</li>
+                                <li className="pl-3 mb-1">Email: {user?.email}</li>
                                 <li><NavLink to='/das'>Dashboard</NavLink></li>
                                 <li><NavLink to='/offer'>Offer</NavLink></li>
                                 <button onClick={handleLogout} className="btn btn-sm bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:text-ttSecondary hover:border-ttSecondary">Logout</button>

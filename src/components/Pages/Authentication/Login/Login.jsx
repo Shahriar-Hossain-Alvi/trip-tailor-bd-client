@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FcGoogle } from "react-icons/fc";
 import loginBanner from "../../../../assets/images/signupBanner.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "react-lottie";
 import loginAnimation from "../../../../assets/Animations/loginPageAnimation.json";
 import 'animate.css';
@@ -12,24 +12,47 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
 
-    const { signInUser, loading, user } = useAuth();
+    const { googleSignIn, signInUser, loading, user } = useAuth();
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/";
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    //sign in user with google and upload data to db
+    const handleGoogleSignIn = () => {
+        if (user) {
+            toast.error("Already Signed In");
+            return;
+        }
+        googleSignIn()
+            .then(() => {
+                toast.success("Sign In successful");
+                setTimeout(() => {
+                    navigate(from, { replace: true });
+                }, 2500)
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error(error);
+            })
+    }
+
+
+    // animation settings
     const defaultOptions = {
         loop: true,
         autoplay: true,
         animationData: loginAnimation,
     };
-
+    //hide animation and show form
     setTimeout(() => {
         document.getElementById('loginAnimation').classList.add('hidden');
         document.getElementById('hero').classList.remove('hidden')
     }, 2400);
 
+
+    //email-password login
     const onSubmit = (data) => {
-        // console.log(data);
         const email = data.email;
         const password = data.password;
         if (user) {
@@ -43,7 +66,7 @@ const Login = () => {
                     if (result.user) {
                         toast.success('Login Successful');
                         setTimeout(() => {
-                            navigate('/');
+                            navigate(from, { replace: true });
                         }, 2500)
                     }
                 })
@@ -77,7 +100,7 @@ const Login = () => {
                     {/* google sign in */}
                     <div className="flex flex-col  items-center w-full lg:w-2/5 my-5">
                         <h3 className="text-lg font-medium text-center mb-3">Click the google icon to sign in with google</h3>
-                        <button className="btn btn-circle border bg-transparent border-ttTerTiary hover:bg-transparent hover:border-ttSecondary rounded-full">
+                        <button onClick={handleGoogleSignIn} className="btn btn-circle border bg-transparent border-ttTerTiary hover:bg-transparent hover:border-ttSecondary rounded-full">
                             <FcGoogle className="w-10 h-10" />
                         </button>
                     </div>
@@ -113,7 +136,7 @@ const Login = () => {
                             </label>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">
+                                <button disabled={loading} className="btn btn-primary">
                                     {
                                         loading ? <ImSpinner9 className="animate-spin" />
                                             :
