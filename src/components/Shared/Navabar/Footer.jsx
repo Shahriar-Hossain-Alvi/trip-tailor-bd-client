@@ -1,7 +1,6 @@
-import { ImFacebook2 } from "react-icons/im";
 import logo from "../../../assets/images/Trip Tailor.png";
 import { GrYoutube } from "react-icons/gr";
-import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
     return (
@@ -17,7 +16,6 @@ const Footer = () => {
                     <h6 className="footer-title">Company</h6>
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Guides</a>
                     <a className="link link-hover">Packages</a>
                 </nav>
                 <nav>
@@ -36,15 +34,19 @@ const Footer = () => {
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
-                        <a href="#" className="hover:text-ttSecondary transition duration-150 ease-linear text-white">
-                            <ImFacebook2 className="w-8 h-8" />
+                        <a href="#" className="hover:bg-ttSecondary transition duration-150 ease-linear text-white rounded-full bg-[#8080804d] p-4">
+                            <FaFacebookF className="w-4 h-4" />
                         </a>
 
-                        <a href="#" className="hover:text-ttSecondary transition duration-150 ease-linear text-white">
-                            <GrYoutube className="w-8 h-8" />
+                        <a href="#" className="hover:bg-ttSecondary transition duration-150 ease-linear text-white rounded-full bg-[#8080804d] p-4">
+                            <GrYoutube className="w-4 h-4" />
                         </a>
-                        <a href="#" className="hover:text-ttSecondary transition duration-150 ease-linear text-white">
-                            <FaSquareXTwitter className="w-8 h-8" />
+                        <a href="#" className="hover:bg-ttSecondary transition duration-150 ease-linear text-white rounded-full bg-[#8080804d] p-4">
+                            <FaXTwitter className="w-4 h-4" />
+                        </a>
+
+                        <a href="#" className="hover:bg-ttSecondary transition duration-150 ease-linear text-white rounded-full bg-[#8080804d] p-4">
+                            <FaInstagram className="w-4 h-4" />
                         </a>
                     </div>
                 </nav>
