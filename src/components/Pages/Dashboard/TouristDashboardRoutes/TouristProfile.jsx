@@ -5,13 +5,16 @@ import LoadingSpinner from "../../../Utility/LoadingSpinner";
 import axios from "axios";
 import { ImSpinner9 } from "react-icons/im";
 import { useState } from "react";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { ToastContainer, toast } from "react-toastify";
 
 const image_hosting_api = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_api}`;
 
 const TouristProfile = () => {
     const { user, loading } = useAuth();
-    const [ formLoading, setFormLoading ] = useState(false);
+    const [formLoading, setFormLoading] = useState(false);
+    const axiosSecure = useAxiosSecure();
 
     const { register, handleSubmit, reset } = useForm();
 
@@ -41,6 +44,14 @@ const TouristProfile = () => {
             spotImage: imgURL
         }
 
+        const storyRes = await axiosSecure.post('/story', storyInfo);
+        
+        if(storyRes.data.insertedId){
+            console.log(storyRes.data.insertedId);
+            toast.success('Post Successful');
+            reset();
+        }
+
         console.log(storyInfo);
     }
 
@@ -51,6 +62,7 @@ const TouristProfile = () => {
 
             <SectionTitle heading={'Your Info'} subHeading={'Here is the detailed information of you'}></SectionTitle>
 
+            <ToastContainer></ToastContainer>
 
             {/* user details */}
             <div className="mx-auto text-center">

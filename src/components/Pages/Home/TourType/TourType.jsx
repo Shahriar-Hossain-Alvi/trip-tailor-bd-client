@@ -23,16 +23,6 @@ const TourType = () => {
             return res.data;
         }
     })
-    console.log(tourTypes);
-
-    const tours = ["heritage","adventure","cultural immersion","nature and wildlife", 'festivals and events',               
-    'culinary',
-    'city exploration',
-    'eco-tourism',
-    'luxury and leisure',
-    'family-friendly',
-    'photography',
-    'educational and research']
 
 
     return (
@@ -52,7 +42,7 @@ const TourType = () => {
                     className="mySwiper"
                 >
                     {
-                        tours.map((tourType, idx) => <SwiperSlide className="mb-10" key={idx}>
+                        tourTypes.map((tourType, idx) => <SwiperSlide className="mb-10" key={idx}>
                             <Link className="h-24 flex items-center justify-center text-lg font-bold tracking-widest font-playfairDisplay capitalize text-ttSecondary hover:text-ttPrimary">
                                 {tourType}
                             </Link>
