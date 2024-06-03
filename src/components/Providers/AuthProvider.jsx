@@ -13,9 +13,9 @@ const googleProvider = new GoogleAuthProvider();
 
 
 const AuthProvider = ({ children }) => {
-    const axiosPublic = useAxiosPublic();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const axiosPublic = useAxiosPublic();
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -70,7 +70,6 @@ const AuthProvider = ({ children }) => {
                     })
             }
             else {
-                //
                 localStorage.removeItem('access-token');
                 setLoading(false);
             }

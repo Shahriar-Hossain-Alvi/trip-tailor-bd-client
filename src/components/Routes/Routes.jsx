@@ -6,6 +6,7 @@ import Community from "../Pages/Community/Community";
 import Login from "../Pages/Authentication/Login/Login";
 import Signup from "../Pages/Authentication/Signup/Signup";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import TouristProfile from "../Pages/Dashboard/TouristDashboardRoutes/TouristProfile";
 
 const router = createBrowserRouter([
   // Main routes
@@ -28,7 +29,13 @@ const router = createBrowserRouter([
   // dashboard routes
   {
     path: '/dashboard',
-    element: <Dashboard></Dashboard>
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "myProfile",
+        element: <TouristProfile></TouristProfile>
+      }
+    ]
   },
 
   // authentication routes

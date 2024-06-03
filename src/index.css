@@ -28,3 +28,12 @@ clip-path: polygon(50% 0%, 60% 60%, 90% 60%, 100% 100%, 0 100%, 10% 60%, 40% 60%
     color: #ff7c5b;
     transition: linear 0.2s;
 }
+
+#dashboardMenu a.active{
+    color: #ff7c5b;
+}
+
+#dashboardMenu a:hover{
+    color: #ff7c5b;
+    transition: linear 0.2s;
+}
