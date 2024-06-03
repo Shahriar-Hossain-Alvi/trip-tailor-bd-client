@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import { GoogleAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import axios from "axios";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 
 const auth = getAuth(app);
@@ -12,6 +13,7 @@ const googleProvider = new GoogleAuthProvider();
 
 
 const AuthProvider = ({ children }) => {
+    const axiosPublic = useAxiosPublic();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -48,7 +50,6 @@ const AuthProvider = ({ children }) => {
             'http://localhost:5000/users',
             userInfo
         )
-        // console.log(data);
         return data;
     }
 
@@ -57,12 +58,27 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log(currentUser);
-            setLoading(false);
+            if (currentUser) {
+                //get token and store in the local storage
+                const userInfo = { email: currentUser.email };
+                axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                            setLoading(false);
+                        }
+                    })
+            }
+            else {
+                //
+                localStorage.removeItem('access-token');
+                setLoading(false);
+            }
         });
         return () => {
             return unsubscribe();
         }
-    }, [])
+    }, [axiosPublic])
 
 
     const authInfo = {

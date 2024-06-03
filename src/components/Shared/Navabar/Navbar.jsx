@@ -4,9 +4,9 @@ import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
 
-    const {user, logoutUser} = useAuth();
+    const { user, logoutUser, loading } = useAuth();
 
-    const handleLogout = ()=>{
+    const handleLogout = () => {
         logoutUser();
     }
 
@@ -36,29 +36,34 @@ const Navbar = () => {
 
                     {/* profile and login/register button */}
                     {
-                        user ? <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
-                                </div>
-                            </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-ttPrimary rounded-box min-w-52  space-y-1">
-                                <li className="pl-3 mb-1">Name: {user?.displayName}</li>
-                                <li className="pl-3 mb-1">Email: {user?.email}</li>
-                                <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-                                <li><NavLink to='/offer'>Offer</NavLink></li>
-                                <button onClick={handleLogout} className="btn btn-sm bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:text-ttSecondary hover:border-ttSecondary">Logout</button>
-                            </ul>
-                        </div>
+                        loading ?
+
+                            <span className="loading loading-spinner text-ttSecondary loading-sm"></span>
+
                             :
-                            <div className="flex gap-2">
-                                <Link to='/login'>
-                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Login</button>
-                                </Link>
-                                <Link to='/signup'>
-                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Sign Up</button>
-                                </Link>
+                            user ? <div className="dropdown">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-ttPrimary rounded-box min-w-52  space-y-1">
+                                    <li className="pl-3 mb-1">Name: {user?.displayName}</li>
+                                    <li className="pl-3 mb-1">Email: {user?.email}</li>
+                                    <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                                    <li><NavLink to='/offer'>Offer</NavLink></li>
+                                    <button onClick={handleLogout} className="btn btn-sm bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:text-ttSecondary hover:border-ttSecondary">Logout</button>
+                                </ul>
                             </div>
+                                :
+                                <div className="flex gap-2">
+                                    <Link to='/login'>
+                                        <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Login</button>
+                                    </Link>
+                                    <Link to='/signup'>
+                                        <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Sign Up</button>
+                                    </Link>
+                                </div>
                     }
                 </div>
 
