@@ -5,25 +5,35 @@ import Home from "../Pages/Home/Home/Home";
 import Community from "../Pages/Community/Community";
 import Login from "../Pages/Authentication/Login/Login";
 import Signup from "../Pages/Authentication/Signup/Signup";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-          path: '/',
-          element: <Home></Home>,
-        },
-        {
-          path: '/community',
-          element: <Community></Community>
-        }
-      ]
-    },
-    {path: '/login', element: <Login></Login>},
-    {path: '/signup', element: <Signup></Signup>}
-  ]);
+  // Main routes
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>,
+      },
+      {
+        path: '/community',
+        element: <Community></Community>
+      }
+    ]
+  },
 
-  export default router
+  // dashboard routes
+  {
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>
+  },
+
+  // authentication routes
+  { path: '/login', element: <Login></Login> },
+  { path: '/signup', element: <Signup></Signup> }
+]);
+
+export default router

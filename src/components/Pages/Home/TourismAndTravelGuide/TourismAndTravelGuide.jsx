@@ -2,7 +2,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SectionTitle from '../../../Utility/SectionTitle';
 import 'react-tabs/style/react-tabs.css';
-import Overview from './Overview/Overview';
+import OverViewSection from './OverViewSection/OverViewSection';
 
 const TourismAndTravelGuide = () => {
     return (
@@ -11,16 +11,16 @@ const TourismAndTravelGuide = () => {
 
             <div className='my-10'>
                 <Tabs
-                    selectedTabClassName='text-ttSecondary bg-ttPrimary font-bold font-playfairDisplay border-ttPrimary border'
+                    selectedTabClassName='text-ttSecondary bg-ttPrimary font-bold font-playfairDisplay border-ttPrimary'
                 >
-                    <TabList className='flex justify-evenly font-bold mb-5 pb-2 border-ttTerTiary border-b w-full cursor-pointer'>
-                        <Tab className="w-1/3 text-center py-3">Overview</Tab>
-                        <Tab className="w-1/3 text-center py-3">Our Packages</Tab>
-                        <Tab className="w-1/3 text-center py-3">Meet Our Guides</Tab>
+                    <TabList className='flex justify-evenly font-bold mb-5 pb-2 w-full cursor-pointer'>
+                        <Tab className="w-1/3 text-center py-3 border border-ttPrimaryBg hover:border-ttSecondary">Overview</Tab>
+                        <Tab className="w-1/3 text-center py-3 border border-ttPrimaryBg hover:border-ttSecondary">Our Packages</Tab>
+                        <Tab className="w-1/3 text-center py-3 border border-ttPrimaryBg hover:border-ttSecondary">Meet Our Guides</Tab>
                     </TabList>
 
                     <TabPanel>
-                        <Overview></Overview>
+                        <OverViewSection></OverViewSection>
                     </TabPanel>
                     <TabPanel>
                         <h2>Any content 2</h2>
@@ -33,5 +33,7 @@ const TourismAndTravelGuide = () => {
         </div>
     );
 };
+
+
 
 export default TourismAndTravelGuide;
