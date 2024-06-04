@@ -5,10 +5,11 @@ import useRole from "../../Hooks/useRole";
 
 const Navbar = () => {
     const { user, logoutUser, loading } = useAuth();
-    const [role, ] = useRole();
+    const [role ] = useRole();
 
     const handleLogout = () => {
         logoutUser();
+        
     }
 
     const navlinks = <>
@@ -40,7 +41,6 @@ const Navbar = () => {
                         loading ?
 
                             <span className="loading loading-spinner text-ttSecondary loading-sm"></span>
-
                             :
                             user ? <div className="dropdown">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

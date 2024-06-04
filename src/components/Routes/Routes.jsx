@@ -12,6 +12,8 @@ import TouristStoryDetails from "../Pages/TouristStoryDetails/TouristStoryDetail
 import AllStories from "../Pages/AllStories/AllStories";
 import TourGuideProfile from "../Pages/Dashboard/TourGuideDashboardRoutes/TourGuideProfile";
 import AdminProfile from "../Pages/Dashboard/AdminDashboardRoutes/AdminProfile";
+import PackageDetails from "../Pages/PackageDetails/PackageDetails";
+import AllPackages from "../Pages/AllPackages/AllPackages";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -34,6 +36,15 @@ const router = createBrowserRouter([
       {
         path: '/allStories',
         element: <AllStories></AllStories>
+      },
+      {
+        path: '/packageDetails/:id',
+        element: <PackageDetails></PackageDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/package/${params.id}`)
+      },
+      {
+        path: '/allPackages',
+        element: <AllPackages></AllPackages>
       },
       {
         path: '/community',

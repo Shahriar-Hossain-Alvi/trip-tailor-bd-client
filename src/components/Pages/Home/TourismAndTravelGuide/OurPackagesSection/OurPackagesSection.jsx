@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import DaisyLoadingSpinner from "../../../../Utility/DaisyLoadingSpinner";
 import OurPackagesCard from "./OurPackagesCard";
+import { Link } from "react-router-dom";
 
 
 const OurPackagesSection = () => {
@@ -25,6 +26,12 @@ const OurPackagesSection = () => {
                 {
                     highestPricePackages.map(singlePackage => <OurPackagesCard key={singlePackage._id} singlePackage={singlePackage}></OurPackagesCard>)
                 }
+            </div>
+
+            <div className="text-center mt-5">
+                <Link to='/allPackages'>
+                <button className="btn bg-ttPrimary text-white hover:bg-ttSecondary">View All Packages</button>
+                </Link>
             </div>
         </div>
     );

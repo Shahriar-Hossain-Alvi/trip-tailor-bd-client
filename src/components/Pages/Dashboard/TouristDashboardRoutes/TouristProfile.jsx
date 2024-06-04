@@ -54,8 +54,6 @@ const TouristProfile = () => {
             toast.success('Post Successful');
             reset();
         }
-
-        console.log(storyInfo);
     }
 
 
