@@ -10,6 +10,9 @@ import TouristProfile from "../Pages/Dashboard/TouristDashboardRoutes/TouristPro
 import PrivateRoute from "./PrivateRoute";
 import TouristStoryDetails from "../Pages/TouristStoryDetails/TouristStoryDetails";
 import AllStories from "../Pages/AllStories/AllStories";
+import TourGuideProfile from "../Pages/Dashboard/TourGuideDashboardRoutes/TourGuideProfile";
+import AdminProfile from "../Pages/Dashboard/AdminDashboardRoutes/AdminProfile";
+// import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
 const router = createBrowserRouter([
@@ -44,9 +47,26 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+      //for tourist
       {
-        path: "myProfile",
+        path: "touristProfile",
         element: <TouristProfile></TouristProfile>
+      },
+
+
+
+      //for tour guide
+      {
+        path: "tourGuideProfile",
+        element: <TourGuideProfile></TourGuideProfile>
+      },
+
+
+
+      //for admin
+      {
+        path: "adminProfile",
+        element: <AdminProfile></AdminProfile>
       }
     ]
   },

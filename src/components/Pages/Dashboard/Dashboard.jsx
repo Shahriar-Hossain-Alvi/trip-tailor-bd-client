@@ -1,8 +1,12 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
+import useRole from "../../Hooks/useRole";
 
 
 
 const Dashboard = () => {
+    const [role] = useRole();
+    console.log(role);
+
 
     return (
         <div className="flex gap-6">
@@ -16,12 +20,35 @@ const Dashboard = () => {
                     <p className="text-xs  text-ttSecondary">BANGLADESH</p>
                 </Link>
 
-                <ul id="dashboardMenu" className="menu uppercase pr-14">
-                    <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
-                    <li><NavLink to='myBookings'>My Bookings</NavLink></li>
-                    <li><NavLink to='myWishlist'>My Wishlist</NavLink></li>
-                    <li><NavLink to='RequestToAdmin'>Request to Admin</NavLink></li>
-                </ul>
+
+                {/* routes for tourist */}
+                {
+                    role === 'tourist' && <ul id="dashboardMenu" className="menu uppercase pr-14">
+                        <li><NavLink to='/dashboard/touristProfile'>My Profile</NavLink></li>
+                        <li><NavLink to='myBookings'>My Bookings</NavLink></li>
+                        <li><NavLink to='myWishlist'>My Wishlist</NavLink></li>
+                        <li><NavLink to='RequestToAdmin'>Request to Admin</NavLink></li>
+                    </ul>
+                }
+
+
+                {/* routes for tour guide */}
+                {
+                    role === "tourGuide" && <ul id="dashboardMenu" className="menu uppercase pr-14">
+                        <li><NavLink to='/dashboard/tourGuideProfile'>My Profile</NavLink></li>
+                        <li><NavLink to='assignedTours'>My Assigned Tours</NavLink></li>
+                    </ul>
+                }
+
+
+                {/* routes for admin */}
+                {
+                    role === 'admin' && <ul id="dashboardMenu" className="menu uppercase pr-14">
+                        <li><NavLink to='/dashboard/adminProfile'>My Profile</NavLink></li>
+                        <li><NavLink to='addPackage'>Add Package</NavLink></li>
+                        <li><NavLink to='manageUsers'>Manage  Users</NavLink></li>
+                    </ul>
+                }
             </div>
 
 

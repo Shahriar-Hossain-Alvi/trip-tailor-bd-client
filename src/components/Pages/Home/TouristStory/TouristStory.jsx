@@ -16,12 +16,10 @@ const TouristStory = () => {
     const { data: stories = [] } = useQuery({
         queryKey: ['stories'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/stories');
+            const res = await axiosPublic.get('/limitedStories');
             return res.data;
         }
     })
-
-    console.log(stories);
 
     return (
         <div className="py-10">

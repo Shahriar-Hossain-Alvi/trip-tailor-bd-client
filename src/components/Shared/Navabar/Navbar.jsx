@@ -1,10 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/Trip Tailor.png";
 import useAuth from "../../Hooks/useAuth";
+import useRole from "../../Hooks/useRole";
 
 const Navbar = () => {
-
     const { user, logoutUser, loading } = useAuth();
+    const [role] = useRole();
 
     const handleLogout = () => {
         logoutUser();
@@ -50,7 +51,17 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-ttPrimary rounded-box min-w-52  space-y-1">
                                     <li className="pl-3 mb-1">Name: {user?.displayName}</li>
                                     <li className="pl-3 mb-1">Email: {user?.email}</li>
-                                    <li><Link to='/dashboard/myProfile'>Dashboard</Link></li>
+                                    {
+                                        role === 'tourist' && <li><Link to='/dashboard/touristProfile'>Dashboard</Link></li>
+                                    }
+                                    {
+                                        role === 'tourGuide' && <li><Link to='/dashboard/tourGuideProfile'>Dashboard</Link></li>
+                                    }
+                                    {
+                                        role === 'admin' && <li><Link to='/dashboard/adminProfile'>Dashboard</Link></li>
+                                    }
+
+
                                     <li><Link to='/offer'>Offer</Link></li>
                                     <button onClick={handleLogout} className="btn btn-sm bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:text-ttSecondary hover:border-ttSecondary">Logout</button>
                                 </ul>

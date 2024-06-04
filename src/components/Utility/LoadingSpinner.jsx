@@ -9,7 +9,7 @@ const override = {
 const LoadingSpinner = () => {
 
     return (
-        <div className="sweet-loading my-20">
+        <div className="sweet-loading my-20 bg-transparent">
             <PacmanLoader
                 color={"#ff7c5b"}
                 speedMultiplier={2}
