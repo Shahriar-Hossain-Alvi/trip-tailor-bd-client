@@ -9,8 +9,11 @@ const Dashboard = () => {
             {/* dashboard sidebar */}
             <div className="w-72 pl-6 pt-12 min-h-screen bg-ttPrimary text-white">
                 <Link to='/' className="flex flex-col text-center mb-5">
-                    <a className="text-3xl font-semibold"><span className="text-ttSecondary">T</span>rip <span className="text-ttSecondary font-medium">T</span>ailor</a>
-                    <a className="text-xs  text-ttSecondary">BANGLADESH</a>
+                    <p className="text-3xl 
+                    font-semibold">
+                        <span className="text-ttSecondary">T</span>rip <span className="text-ttSecondary font-medium">T</span>ailor
+                    </p>
+                    <p className="text-xs  text-ttSecondary">BANGLADESH</p>
                 </Link>
 
                 <ul id="dashboardMenu" className="menu uppercase pr-14">

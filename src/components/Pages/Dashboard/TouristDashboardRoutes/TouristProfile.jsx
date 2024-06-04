@@ -7,6 +7,7 @@ import { ImSpinner9 } from "react-icons/im";
 import { useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { ToastContainer, toast } from "react-toastify";
+import UserDetails from "../../../Utility/UserDetails";
 
 const image_hosting_api = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_api}`;
@@ -33,6 +34,7 @@ const TouristProfile = () => {
         });
         const imgURL = res.data.data.display_url;
         setFormLoading(false);
+        const ratingString = data.rating;
 
         const storyInfo = {
             name: user?.displayName,
@@ -41,12 +43,13 @@ const TouristProfile = () => {
             storyTitle: data.storyTitle,
             storyDetails: data.storyDetails,
             tourType: data.tourType,
-            spotImage: imgURL
+            spotImage: imgURL,
+            rating: parseInt(ratingString)
         }
 
         const storyRes = await axiosSecure.post('/story', storyInfo);
-        
-        if(storyRes.data.insertedId){
+
+        if (storyRes.data.insertedId) {
             console.log(storyRes.data.insertedId);
             toast.success('Post Successful');
             reset();
@@ -65,17 +68,7 @@ const TouristProfile = () => {
             <ToastContainer></ToastContainer>
 
             {/* user details */}
-            <div className="mx-auto text-center">
-                <div className="w-28 h-28 rounded-full shadow-2xl mx-auto mb-6">
-                    <img className="rounded-full w-28 h-28" src={user?.photoURL} alt="user image" />
-                </div>
-                <h2 className="font-medium text-xl capitalize mb-2">Name: {user?.displayName}</h2>
-                <h4 className="text-lg font-medium mb-2">Email: {user?.email}</h4>
-
-                <h5 className="text-lg text-ttTerTiary font-medium mb-2">User Since: {user?.metadata.creationTime}</h5>
-
-                <h5 className="text-lg text-ttTerTiary font-medium">Last login: {user?.metadata.lastSignInTime}</h5>
-            </div>
+            <UserDetails></UserDetails>
 
 
             {/* story form */}
@@ -105,6 +98,14 @@ const TouristProfile = () => {
                             <span className="label-text">Tour type</span>
                         </label>
                         <input {...register("tourType", { required: true })} type="text" placeholder="Enter tour type" className="input input-bordered" />
+                    </div>
+
+                    {/* rating */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Give a rating (out of 5)</span>
+                        </label>
+                        <input {...register("rating", { required: true })} type="number" placeholder="Give your rating" className="input input-bordered" />
                     </div>
 
                     {/* spot photo  */}

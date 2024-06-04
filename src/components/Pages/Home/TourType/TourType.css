@@ -1,11 +1,9 @@
 
-  .swiper-slide {
+.mySwiper .swiper-slide {
     background: #061A3A;
-    border-radius: 20px;
   }
-  .swiper-slide:hover {
+.mySwiper  .swiper-slide:hover {
     background: #ff7c5b;
-    transition: linear 0.2s;
   }
   
 

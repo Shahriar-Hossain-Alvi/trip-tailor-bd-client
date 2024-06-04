@@ -7,6 +7,7 @@ import Login from "../Pages/Authentication/Login/Login";
 import Signup from "../Pages/Authentication/Signup/Signup";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import TouristProfile from "../Pages/Dashboard/TouristDashboardRoutes/TouristProfile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   // Main routes
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   // dashboard routes
   {
     path: '/dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "myProfile",

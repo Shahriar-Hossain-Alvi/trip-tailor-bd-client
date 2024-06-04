@@ -30,7 +30,7 @@ const TourType = () => {
             <SectionTitle heading={'Tour Type'} subHeading={'Explore Our Diverse Tour Options Tailored to Your Interests'}></SectionTitle>
 
 
-            <div className="pb-10">
+            <div className="pb-10 mx-4">
 
                 <Swiper
                     slidesPerView={5}
