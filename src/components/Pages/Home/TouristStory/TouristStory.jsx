@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import TouristStoryCard from "./TouristStoryCard";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './TouristStoryCard'
@@ -44,7 +42,6 @@ const TouristStory = () => {
                     }
 
                 </Swiper>
-
             </div>
         </div>
     );

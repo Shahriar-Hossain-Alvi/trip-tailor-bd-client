@@ -5,7 +5,7 @@ import Footer from "../Shared/Navabar/Footer";
 
 const Main = () => {
     return (
-        <div className="max-w-7xl mx-auto bg-ttPrimaryBg">
+        <div>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
