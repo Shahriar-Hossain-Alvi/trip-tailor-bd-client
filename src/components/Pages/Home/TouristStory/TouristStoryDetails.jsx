@@ -1,13 +1,18 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import LoadingSpinner from "../../../Utility/LoadingSpinner";
 import { FaStar } from "react-icons/fa6";
+import { FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, TelegramIcon, TelegramShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
 
 const TouristStoryDetails = () => {
     const story = useLoaderData();
+    const { id } = useParams();
     const { loading } = useAuth();
 
     const { storyTitle, imageURL, name, storyDetails, tourType, spotImage, rating } = story;
+
+    const shareUrl = `http://localhost:5173/storyDetails/${id}`;
+    const title = { storyTitle }
 
 
     if (loading) {
@@ -43,6 +48,47 @@ const TouristStoryDetails = () => {
                 {/* spot image */}
                 <div>
                     <img className="w-full h-full" src={spotImage} alt="spot image" />
+                </div>
+            </div>
+
+
+            <div>
+                <h2 className="text-lg font-medium">Like this Story? Share it with your friends</h2>
+                <div className="flex items-center gap-2">
+                    <div>
+                        <FacebookShareButton
+                            url={shareUrl}>
+
+                            <FacebookIcon size={32} round />
+                        </FacebookShareButton>
+                    </div>
+
+                    <div>
+                        <TelegramShareButton
+                            url={shareUrl}
+                            title={title}
+                            className="Demo__some-network__share-button"
+                        >
+                            <TelegramIcon size={32} round />
+                        </TelegramShareButton>
+                    </div>
+
+                    <div>
+                        <WhatsappShareButton
+                            url={shareUrl}
+                            title={title}
+                            separator=":: "
+                            className="Demo__some-network__share-button"
+                        >
+                            <WhatsappIcon size={32} round />
+                        </WhatsappShareButton>
+                    </div>
+
+                    <div>
+                        <LinkedinShareButton url={shareUrl} className="Demo__some-network__share-button">
+                            <LinkedinIcon size={32} round />
+                        </LinkedinShareButton>
+                    </div>
                 </div>
             </div>
         </div>
