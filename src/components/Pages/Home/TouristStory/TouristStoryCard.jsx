@@ -11,7 +11,7 @@ const TouristStoryCard = ({ story }) => {
         <Link to={`/storyDetails/${_id}`} className="px-9 bg-ttPrimaryBg">
             <div className="mb-4">
                 <FaQuoteLeft className="text-2xl text-ttSecondary" />
-                <h2 className="font-bold text-center text-xl text-ttPrimary font-playfairDisplay tracking-wide">{storyTitle}</h2>
+                <h2 className="font-bold text-center text-3xl text-ttPrimary font-playfairDisplay tracking-wide">{storyTitle}</h2>
                 <h3 className="text-ttTerTiary text-center my-1">Tour type: {tourType}</h3>
                 <p className="flex items-center justify-center text-sm mb-1 text-ttSecondary">Ratings: {rating} <FaStar /></p>
                 <p className="text-center text-ttPrimary">{storyDetails.slice(0, 200)}...</p>

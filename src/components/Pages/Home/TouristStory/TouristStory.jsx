@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import './TouristStoryCard'
 import { Pagination, Navigation } from 'swiper/modules';
+import { Link } from "react-router-dom";
 
 
 
@@ -40,8 +41,14 @@ const TouristStory = () => {
                             </SwiperSlide>
                         )
                     }
-
                 </Swiper>
+            </div>
+            <div className="text-center mt-5">
+                <Link to='/allStories'>
+                    <button className="btn bg-ttPrimary text-white hover:bg-ttSecondary">
+                        View All Stories
+                    </button>
+                </Link>
             </div>
         </div>
     );

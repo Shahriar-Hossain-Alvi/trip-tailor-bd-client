@@ -8,7 +8,9 @@ import Signup from "../Pages/Authentication/Signup/Signup";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import TouristProfile from "../Pages/Dashboard/TouristDashboardRoutes/TouristProfile";
 import PrivateRoute from "./PrivateRoute";
-import TouristStoryDetails from "../Pages/Home/TouristStory/TouristStoryDetails";
+import TouristStoryDetails from "../Pages/TouristStoryDetails/TouristStoryDetails";
+import AllStories from "../Pages/AllStories/AllStories";
+
 
 const router = createBrowserRouter([
   // Main routes
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
         path: '/storyDetails/:id',
         element: <TouristStoryDetails></TouristStoryDetails>,
         loader: ({ params }) => fetch(`http://localhost:5000/story/${params.id}`)
+      },
+      {
+        path: '/allStories',
+        element: <AllStories></AllStories>
       },
       {
         path: '/community',
