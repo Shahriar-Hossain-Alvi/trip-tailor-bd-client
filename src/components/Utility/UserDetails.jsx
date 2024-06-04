@@ -1,10 +1,11 @@
 import useAuth from "../Hooks/useAuth";
+import DaisyLoadingSpinner from "./DaisyLoadingSpinner";
 
 const UserDetails = () => {
     const { user, loading } = useAuth();
 
     if(loading){
-        return <span className="loading loading-spinner loading-md text-ttSecondary"></span>
+        return <DaisyLoadingSpinner></DaisyLoadingSpinner>
     }
 
     return (

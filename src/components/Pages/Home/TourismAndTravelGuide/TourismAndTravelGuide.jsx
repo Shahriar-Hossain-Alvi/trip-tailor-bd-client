@@ -3,11 +3,12 @@ import 'react-tabs/style/react-tabs.css';
 import SectionTitle from '../../../Utility/SectionTitle';
 import 'react-tabs/style/react-tabs.css';
 import OverViewSection from './OverViewSection/OverViewSection';
+import OurPackagesSection from './OurPackagesSection/OurPackagesSection';
 
 const TourismAndTravelGuide = () => {
     return (
         <div>
-            <SectionTitle heading={'Explore Bangladesh with Us'} subHeading={'Discover the beauty, plan your journey, and meet our expert guides to make your trip unforgettable'}></SectionTitle>
+            <SectionTitle heading={'Tourism & Travel Guide'} subHeading={'Discover the beauty, plan your journey, and meet our expert guides to make your trip unforgettable'}></SectionTitle>
 
             <div className='my-10'>
                 <Tabs
@@ -23,7 +24,7 @@ const TourismAndTravelGuide = () => {
                         <OverViewSection></OverViewSection>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        <OurPackagesSection></OurPackagesSection>
                     </TabPanel>
                     <TabPanel>
                         <h2>Any content 3</h2>

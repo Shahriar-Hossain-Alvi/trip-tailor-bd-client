@@ -4,8 +4,7 @@ import useRole from "../../Hooks/useRole";
 
 
 const Dashboard = () => {
-    const [role] = useRole();
-    console.log(role);
+    const [role, ] = useRole();
 
 
     return (

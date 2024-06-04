@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import TouristStoryCard from "../Home/TouristStory/TouristStoryCard";
+import DaisyLoadingSpinner from "../../Utility/DaisyLoadingSpinner";
 
 
 const AllStories = () => {
@@ -15,11 +16,7 @@ const AllStories = () => {
         }
     })
 
-    if (isLoading) return <div className="flex justify-center mt-20">
-        <span className="loading loading-spinner loading-lg text-ttSecondary"></span>
-    </div>
-
-    console.log(stories);
+    if (isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
     return (
         <div className="py-10">

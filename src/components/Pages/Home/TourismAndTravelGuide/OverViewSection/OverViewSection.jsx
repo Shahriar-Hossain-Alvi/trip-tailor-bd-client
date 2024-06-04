@@ -1,10 +1,8 @@
 
-
 const OverViewSection = () => {
 
-
     return (
-        <div className="">
+        <div>
 
             <h2 className="text-xl font-medium text-center mb-8 text-ttPrimary">The videos below will give you a quick overview of our services</h2>
 
