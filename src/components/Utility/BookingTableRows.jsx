@@ -1,15 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
 
-const BookingTableRows = ({ index, booking }) => {
+const BookingTableRows = ({ index, booking, handleCancelButton }) => {
     const { _id, date, price, tripTitle, selectedTourGuide, status } = booking;
 
     // todo cancel btn function
 
-    const handleCancelButton = async() => {
-        console.log('Cancel', _id);
 
-    }
 
     return (
         <tr>
@@ -22,7 +18,7 @@ const BookingTableRows = ({ index, booking }) => {
             <td>
                 {
                     status === "In Review" &&
-                    <button onClick={handleCancelButton}  className="btn btn-sm bg-red-600 text-white hover:bg-ttSecondary">Cancel</button>
+                    <button onClick={() => handleCancelButton(_id)} className="btn btn-sm bg-red-600 text-white hover:bg-ttSecondary">Cancel</button>
                 }
                 {
                     status === "Accepted" &&
@@ -36,7 +32,8 @@ const BookingTableRows = ({ index, booking }) => {
 
 BookingTableRows.propTypes = {
     booking: PropTypes.object,
-    index: PropTypes.number
+    index: PropTypes.number,
+    handleCancelButton: PropTypes.func
 }
 
 export default BookingTableRows;

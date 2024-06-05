@@ -70,6 +70,11 @@ const TouristProfile = () => {
 
             {/* story form */}
             <div>
+                <SectionTitle
+                    heading={'Wanna Add a Story?'}
+                    subHeading={'Use the form below to share your experience with others'}
+                ></SectionTitle>
+
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                     {/* story title */}
