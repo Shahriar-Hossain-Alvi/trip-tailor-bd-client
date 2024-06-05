@@ -19,8 +19,6 @@ const PackageImageGallery = ({ spotImages }) => {
     }, []);
 
 
-    console.log(spotImages);
-
     return (
         <div>
             <LightGallery
