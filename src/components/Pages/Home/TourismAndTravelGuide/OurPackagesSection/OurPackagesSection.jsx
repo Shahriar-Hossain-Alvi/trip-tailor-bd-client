@@ -15,7 +15,6 @@ const OurPackagesSection = () => {
         }
     })
 
-    // console.log(highestPricePackages);
 
     if (isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
