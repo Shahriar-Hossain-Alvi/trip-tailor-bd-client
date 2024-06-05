@@ -14,6 +14,7 @@ import TourGuideProfile from "../Pages/Dashboard/TourGuideDashboardRoutes/TourGu
 import AdminProfile from "../Pages/Dashboard/AdminDashboardRoutes/AdminProfile";
 import PackageDetails from "../Pages/PackageDetails/PackageDetails";
 import AllPackages from "../Pages/AllPackages/AllPackages";
+import MyBookings from "../Pages/Dashboard/TouristDashboardRoutes/MyBookings";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -58,10 +59,15 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+
       //for tourist
       {
         path: "touristProfile",
         element: <TouristProfile></TouristProfile>
+      },
+      {
+        path: 'myBookings',
+        element: <MyBookings></MyBookings>
       },
 
 

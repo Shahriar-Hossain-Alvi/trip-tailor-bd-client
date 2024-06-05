@@ -50,7 +50,6 @@ const TouristProfile = () => {
         const storyRes = await axiosSecure.post('/story', storyInfo);
 
         if (storyRes.data.insertedId) {
-            console.log(storyRes.data.insertedId);
             toast.success('Post Successful');
             reset();
         }
@@ -119,7 +118,7 @@ const TouristProfile = () => {
                             formLoading ?
                                 <button disabled={loading} className="btn bg-ttPrimary text-white"><ImSpinner9 className="animate-spin" /></button>
                                 :
-                                <button className="btn bg-ttPrimary text-white hover:bg-ttSecondary">Login</button>
+                                <button className="btn bg-ttPrimary text-white hover:bg-ttSecondary">POST</button>
                         }
                     </div>
                 </form>

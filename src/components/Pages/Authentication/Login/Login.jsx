@@ -29,7 +29,7 @@ const Login = () => {
                 toast.success("Sign In successful");
                 setTimeout(() => {
                     navigate(from, { replace: true });
-                }, 2500)
+                }, 2000)
             })
             .catch(error => {
                 console.log(error);
@@ -48,7 +48,7 @@ const Login = () => {
     setTimeout(() => {
         document.getElementById('loginAnimation').classList.add('hidden');
         document.getElementById('hero').classList.remove('hidden')
-    }, 2400);
+    }, 1900);
 
 
     //email-password login
@@ -67,7 +67,7 @@ const Login = () => {
                         toast.success('Login Successful');
                         setTimeout(() => {
                             navigate(from, { replace: true });
-                        }, 2500)
+                        }, 2000)
                     }
                 })
                 .catch(error => {
