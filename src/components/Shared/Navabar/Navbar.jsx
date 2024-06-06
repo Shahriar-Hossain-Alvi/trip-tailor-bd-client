@@ -4,9 +4,9 @@ import useAuth from "../../Hooks/useAuth";
 import useRole from "../../Hooks/useRole";
 
 const Navbar = () => {
-    const { user, logoutUser, loading } = useAuth();
-    const [role ] = useRole();
-    
+    const { user, logoutUser } = useAuth();
+    const [role] = useRole();
+
     const handleLogout = () => {
         logoutUser();
     }
@@ -37,11 +37,8 @@ const Navbar = () => {
 
                     {/* profile and login/register button */}
                     {
-                        loading ?
-
-                            <span className="loading loading-spinner text-ttSecondary loading-sm"></span>
-                            :
-                            user ? <div className="dropdown">
+                        user ?
+                            <div className="dropdown">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
                                         <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
@@ -65,15 +62,16 @@ const Navbar = () => {
                                     <button onClick={handleLogout} className="btn btn-sm bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:text-ttSecondary hover:border-ttSecondary">Logout</button>
                                 </ul>
                             </div>
-                                :
-                                <div className="flex gap-2">
-                                    <Link to='/login'>
-                                        <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Login</button>
-                                    </Link>
-                                    <Link to='/signup'>
-                                        <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Sign Up</button>
-                                    </Link>
-                                </div>
+
+                            :
+                            <div className="flex gap-2">
+                                <Link to='/login'>
+                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Login</button>
+                                </Link>
+                                <Link to='/signup'>
+                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Sign Up</button>
+                                </Link>
+                            </div>
                     }
                 </div>
 

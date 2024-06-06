@@ -55,6 +55,7 @@ const MyBookings = () => {
                 heading={'Manage Your Bookings'}
                 subHeading={"This list shows all the packages you've booked. You can Cancel your chosen package or Pay to confirm your bookings"}
             ></SectionTitle>
+            
             <div className="overflow-x-auto">
                 <table className="table table-xs md:table-md  lg:table-lg">
                     {/* head */}

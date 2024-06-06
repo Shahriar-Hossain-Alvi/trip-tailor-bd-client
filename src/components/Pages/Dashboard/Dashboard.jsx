@@ -4,11 +4,11 @@ import useRole from "../../Hooks/useRole";
 
 
 const Dashboard = () => {
-    const [role, ] = useRole();
+    const [role ] = useRole();
 
 
     return (
-        <div className="flex gap-6">
+        <div className="flex flex-row-reverse gap-6">
             {/* dashboard sidebar */}
             <div className="w-72 pl-6 pt-12 min-h-screen bg-ttPrimary text-white">
                 <Link to='/' className="flex flex-col text-center mb-5">
@@ -52,9 +52,8 @@ const Dashboard = () => {
 
 
 
-
             {/* dashboard content */}
-            <div className="flex-1 mt-10">
+            <div className="flex-1 mt-10 bg-ttPrimaryBg">
                 <Outlet></Outlet>
             </div>
         </div>

@@ -8,13 +8,13 @@ const BookingTableRows = ({ index, booking, handleCancelButton }) => {
 
 
     return (
-        <tr>
+        <tr className='text-center hover'>
             <th>{index + 1}</th>
-            <td>{tripTitle}</td>
-            <td>{selectedTourGuide}</td>
-            <td>{date.slice(0, 15)}</td>
-            <td>{price}</td>
-            <td>{status}</td>
+            <td className='text-ttPrimary font-medium'>{tripTitle}</td>
+            <td className='text-ttPrimary font-medium'>{selectedTourGuide}</td>
+            <td className='text-ttPrimary font-medium'>{date.slice(0, 15)}</td>
+            <td className='text-ttPrimary font-medium'>{price}</td>
+            <td className='text-ttSecondary font-semibold'>{status}</td>
             <td>
                 {
                     status === "In Review" &&
