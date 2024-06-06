@@ -18,7 +18,30 @@ const ManageUsers = () => {
     });
 
     const handleMakeAdmin = id => {
-        console.log(id);
+        Swal.fire({
+            title: "Are your sure you want to make this user admin?",
+            icon: "warning",
+            background: "#061A3A",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            color: "#ffffff",
+            cancelButtonColor: "green",
+            confirmButtonText: "Yes, make Admin!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/admin/${id}`)
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                title: "Done!",
+                                text: "The user is now an Admin.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
 
     }
 
@@ -36,7 +59,6 @@ const ManageUsers = () => {
             if (result.isConfirmed) {
                 axiosSecure.patch(`/users/tourGuide/${id}`)
                     .then(res => {
-                        console.log(res.data);
                         if (res.data.modifiedCount > 0) {
                             refetch();
                             Swal.fire({
