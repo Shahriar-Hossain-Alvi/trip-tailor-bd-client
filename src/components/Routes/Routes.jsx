@@ -20,6 +20,7 @@ import RequestToaAdmin from "../Pages/Dashboard/TouristDashboardRoutes/RequestTo
 import AdminRoute from "./AdminRoute";
 import TourGuideRoute from "./TourGuideRoute";
 import AddPackage from "../Pages/Dashboard/AdminDashboardRoutes/AddPackage";
+import ManageUsers from "../Pages/Dashboard/AdminDashboardRoutes/ManageUsers";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: "addPackage",
         element: <AdminRoute><AddPackage></AddPackage></AdminRoute>
+      },
+      {
+        path: "manageUsers",
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
       },
     ]
   },

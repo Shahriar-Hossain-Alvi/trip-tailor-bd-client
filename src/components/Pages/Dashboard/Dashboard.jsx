@@ -41,7 +41,7 @@ const Dashboard = () => {
 
                     {/* routes for tour guide */}
                     {
-                        role === "tourGuide" && <ul id="dashboardMenu" className="menu uppercase pr-14">
+                        role === "tour guide" && <ul id="dashboardMenu" className="menu uppercase pr-14">
                             <li><NavLink to='/dashboard/tourGuideProfile'>My Profile</NavLink></li>
                             <li><NavLink to='assignedTours'>My Assigned Tours</NavLink></li>
                         </ul>

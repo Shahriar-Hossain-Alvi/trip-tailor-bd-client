@@ -51,7 +51,7 @@ const Navbar = () => {
                                         role === 'tourist' && <li><Link to='/dashboard/touristProfile'>Dashboard</Link></li>
                                     }
                                     {
-                                        role === 'tourGuide' && <li><Link to='/dashboard/tourGuideProfile'>Dashboard</Link></li>
+                                        role === 'tour guide' && <li><Link to='/dashboard/tourGuideProfile'>Dashboard</Link></li>
                                     }
                                     {
                                         role === 'admin' && <li><Link to='/dashboard/adminProfile'>Dashboard</Link></li>

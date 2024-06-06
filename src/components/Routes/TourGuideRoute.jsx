@@ -15,7 +15,7 @@ const TourGuideRoute = ({ children }) => {
         return <LoadingSpinner></LoadingSpinner>
     }
 
-    if (user && role === 'admin') {
+    if (user && role === 'tour guide') {
         return children;
     }
 
