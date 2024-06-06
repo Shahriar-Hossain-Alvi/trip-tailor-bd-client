@@ -17,6 +17,8 @@ import AllPackages from "../Pages/AllPackages/AllPackages";
 import MyBookings from "../Pages/Dashboard/TouristDashboardRoutes/MyBookings";
 import MyWishlist from "../Pages/Dashboard/TouristDashboardRoutes/MyWishlist";
 import RequestToaAdmin from "../Pages/Dashboard/TouristDashboardRoutes/RequestToaAdmin";
+import AdminRoute from "./AdminRoute";
+import TourGuideRoute from "./TourGuideRoute";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -85,7 +87,7 @@ const router = createBrowserRouter([
       //for tour guide
       {
         path: "tourGuideProfile",
-        element: <TourGuideProfile></TourGuideProfile>
+        element: <TourGuideRoute><TourGuideProfile></TourGuideProfile></TourGuideRoute>
       },
 
 
@@ -93,7 +95,7 @@ const router = createBrowserRouter([
       //for admin
       {
         path: "adminProfile",
-        element: <AdminProfile></AdminProfile>
+        element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
       }
     ]
   },

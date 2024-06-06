@@ -5,13 +5,22 @@ import SectionTitle from "../../../Utility/SectionTitle";
 import { toast } from "react-toastify";
 import { ImSpinner9 } from "react-icons/im";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 
 const RequestToaAdmin = () => {
-    const { user, loading } = useAuth();
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const { register, handleSubmit, reset } = useForm();
     const [formLoading, setFormLoading] = useState(false);
+
+    const { data: isRequestAccepted = {}, refetch } = useQuery({
+        queryKey: ['isRequestAccepted', user],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/user/${user?.email}`)
+            return res.data;
+        }
+    })
 
     const onSubmit = async (data) => {
         setFormLoading(true)
@@ -28,13 +37,13 @@ const RequestToaAdmin = () => {
         }
 
         const res = await axiosSecure.put('/users', updatedUserInfo);
-        console.log(res.data);
+
         if (res.data.modifiedCount > 0) {
             setFormLoading(false);
             toast.success('Requested Successfully');
             reset();
+            refetch();
         }
-        console.log(updatedUserInfo);
     }
 
     return (
@@ -46,7 +55,14 @@ const RequestToaAdmin = () => {
 
 
             <div>
-                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                <div className="text-center">
+                    {
+                        isRequestAccepted.status === "requested" && <div className="badge badge-error badge-lg h-12 text-white">Wait for Admin approval</div>
+                    }
+                </div>
+
+
+                <form onSubmit={handleSubmit(onSubmit)} className={`card-body ${isRequestAccepted.status === "requested" && 'hidden'}`}>
 
                     {/* contact details */}
                     <div className="form-control">
