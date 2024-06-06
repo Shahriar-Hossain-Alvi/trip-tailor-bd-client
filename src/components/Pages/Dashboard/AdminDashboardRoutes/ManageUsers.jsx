@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import SectionTitle from "../../../Utility/SectionTitle";
 import AllUsersTableRow from "../../../Utility/AllUsersTableRow";
-import axios from "axios";
 import Swal from "sweetalert2";
 
 

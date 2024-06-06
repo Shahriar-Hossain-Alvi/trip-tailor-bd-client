@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/Trip Tailor.png";
 import useAuth from "../../Hooks/useAuth";
 import useRole from "../../Hooks/useRole";
+import { MdDashboard } from "react-icons/md";
 
 const Navbar = () => {
     const { user, logoutUser } = useAuth();
@@ -48,13 +49,13 @@ const Navbar = () => {
                                     <li className="pl-3 mb-1">Name: {user?.displayName}</li>
                                     <li className="pl-3 mb-1">Email: {user?.email}</li>
                                     {
-                                        role === 'tourist' && <li><Link to='/dashboard/touristProfile'>Dashboard</Link></li>
+                                        role === 'tourist' && <li><Link to='/dashboard/touristProfile'><MdDashboard /> Dashboard</Link></li>
                                     }
                                     {
-                                        role === 'tour guide' && <li><Link to='/dashboard/tourGuideProfile'>Dashboard</Link></li>
+                                        role === 'tour guide' && <li><Link to='/dashboard/tourGuideProfile'><MdDashboard /> Dashboard</Link></li>
                                     }
                                     {
-                                        role === 'admin' && <li><Link to='/dashboard/adminProfile'>Dashboard</Link></li>
+                                        role === 'admin' && <li><Link to='/dashboard/adminProfile'><MdDashboard /> Dashboard</Link></li>
                                     }
 
 

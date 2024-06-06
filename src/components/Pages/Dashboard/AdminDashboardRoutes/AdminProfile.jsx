@@ -14,7 +14,7 @@ const AdminProfile = () => {
 
     return (
         <div>
-             <h2 className="text-4xl text-ttPrimary font-medium italic">Welcome! <span className="font-bold">{user?.displayName}</span>, This is your dashboard</h2>
+             <h2 className="text-4xl text-ttPrimary font-medium italic text-center">Welcome! <span className="font-bold">{user?.displayName}</span>, This is your dashboard</h2>
 
             <SectionTitle heading={'Your Info'} subHeading={'Here is the detailed information of you'}></SectionTitle>
 

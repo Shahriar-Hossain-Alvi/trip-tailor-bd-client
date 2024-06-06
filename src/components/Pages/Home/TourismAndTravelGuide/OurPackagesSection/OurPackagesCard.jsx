@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
 
 const OurPackagesCard = ({ singlePackage }) => {
     const { user } = useAuth();
@@ -14,6 +15,9 @@ const OurPackagesCard = ({ singlePackage }) => {
     const firstImage = spotImages[0];
 
     const handleAddToWishList = async (id) => {
+        if(!user){
+            return toast.error('Login first before adding to wishlist')
+        }
         const wishlist = {
             packageId: id,
             name: user?.displayName, email: user?.email, imgURL: user?.photoURL, tourType, tripTitle, price, wishlistImage: firstImage,
@@ -46,8 +50,9 @@ const OurPackagesCard = ({ singlePackage }) => {
 
     return (
         <div className="p-5 border border-ttTerTiary rounded border-opacity-20 group h-[400px] flex flex-col">
+            <ToastContainer></ToastContainer>
             <div className="relative overflow-hidden">
-                <img className="group-hover:scale-110 transition w-full h-full" src={firstImage} alt="" />
+                <img className="group-hover:scale-110 transition w-full h-full" src={firstImage} alt="card image" />
 
                 <div className="flex justify-between bg-black bg-opacity-60 bottom-0 absolute w-full p-2">
                     <p className="text-white">{price} <span className="italic text-ttSecondary font-bold">tk</span> </p>
