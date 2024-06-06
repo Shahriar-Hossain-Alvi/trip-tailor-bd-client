@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import useRole from "../../Hooks/useRole";
 import useAuth from "../../Hooks/useAuth";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -16,6 +16,7 @@ const Dashboard = () => {
 
     return (
         <div className="flex flex-row-reverse gap-6">
+            <ScrollRestoration></ScrollRestoration>
             {/* dashboard sidebar */}
             <div className="w-72 pt-12 items-center min-h-screen bg-ttPrimary text-white flex flex-col">
                 <Link to='/' className="flex flex-col text-center mb-5 group">
