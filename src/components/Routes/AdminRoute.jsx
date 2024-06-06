@@ -7,9 +7,9 @@ import useRole from "../Hooks/useRole";
 const AdminRoute = ({ children }) => {
     const { user, loading } = useAuth();
     const location = useLocation();
-    const [role] = useRole();
+    const [role, isLoading] = useRole();
 
-    if (loading) {
+    if (loading || isLoading) {
         return <LoadingSpinner></LoadingSpinner>
     }
 

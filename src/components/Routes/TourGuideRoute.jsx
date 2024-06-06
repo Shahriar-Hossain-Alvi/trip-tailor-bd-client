@@ -8,10 +8,10 @@ import useRole from "../Hooks/useRole";
 const TourGuideRoute = ({ children }) => {
     const { user, loading } = useAuth();
     const location = useLocation();
-    const [role] = useRole();
+    const [role, isLoading] = useRole();
 
 
-    if (loading) {
+    if (loading || isLoading) {
         return <LoadingSpinner></LoadingSpinner>
     }
 
