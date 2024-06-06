@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const WishlistTableRows = ({ wishlist, index, handleDeleteButton }) => {
+const WishlistTableRows = ({ wishlist, index, handleDeleteWishlist }) => {
 
-    const { _id, tripTitle, tourType, price, wishlistImage } = wishlist;
+    const { _id, tripTitle, tourType, price, wishlistImage, packageId } = wishlist;
 
     return (
         <tr className='text-center hover'>
@@ -13,10 +13,10 @@ const WishlistTableRows = ({ wishlist, index, handleDeleteButton }) => {
             <td className='text-ttPrimary font-medium'>{tourType}</td>
             <td className='text-ttPrimary font-medium'>{price}</td>
             <td>
-                <button onClick={()=>handleDeleteButton(_id)} className="btn btn-error text-white">Delete</button>
+                <button onClick={()=>handleDeleteWishlist(_id)} className="btn btn-error text-white">Delete</button>
             </td>
             <td>
-                <Link>
+                <Link to={`/packageDetails/${packageId}`}>
                     <button className="btn bg-ttPrimary text-white hover:bg-blue-800">Visit Details</button>
                 </Link>
             </td>
@@ -27,7 +27,7 @@ const WishlistTableRows = ({ wishlist, index, handleDeleteButton }) => {
 WishlistTableRows.propTypes = {
     wishlist: PropTypes.object,
     index: PropTypes.number,
-    handleDeleteButton: PropTypes.func
+    handleDeleteWishlist: PropTypes.func
 }
 
 export default WishlistTableRows;

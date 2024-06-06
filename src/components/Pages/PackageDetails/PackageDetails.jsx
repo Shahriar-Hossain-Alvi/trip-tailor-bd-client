@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import PackageImageGallery from "../../Utility/PackageImageGallery";
 import CheckMarkIcon from "../../Utility/CheckMarkIcon";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DaisyLoadingSpinner from "../../Utility/DaisyLoadingSpinner";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
@@ -17,18 +17,9 @@ const PackageDetails = () => {
     const { user, loading } = useAuth();
     const singlePackageInfo = useLoaderData();
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [dataLoading, setDataLoading] = useState(true);
     const { register, handleSubmit, reset } = useForm();
     const [tourGuides,] = useTourGuides();
     const axiosSecure = useAxiosSecure();
-
-    useEffect(() => {
-        if (singlePackageInfo) {
-            setDataLoading(false);
-        }
-    }, [singlePackageInfo]);
-
-    if (dataLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
     if (loading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 

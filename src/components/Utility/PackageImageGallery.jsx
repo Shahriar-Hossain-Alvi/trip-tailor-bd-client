@@ -38,7 +38,7 @@ const PackageImageGallery = ({ spotImages }) => {
 
             >
                 {
-                    spotImages.map((image, idx) => <a key={idx}
+                    spotImages?.map((image, idx) => <a key={idx}
                         data-lg-size="1600-1067"
                         data-pinterest-text="Pin it3"
                         data-tweet-text="lightGallery slide  4"
