@@ -16,6 +16,7 @@ import PackageDetails from "../Pages/PackageDetails/PackageDetails";
 import AllPackages from "../Pages/AllPackages/AllPackages";
 import MyBookings from "../Pages/Dashboard/TouristDashboardRoutes/MyBookings";
 import MyWishlist from "../Pages/Dashboard/TouristDashboardRoutes/MyWishlist";
+import RequestToaAdmin from "../Pages/Dashboard/TouristDashboardRoutes/RequestToaAdmin";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "myWishlist",
         element: <MyWishlist></MyWishlist>
+      },
+      {
+        path: "requestToAdmin",
+        element: <RequestToaAdmin></RequestToaAdmin>
       },
 
 

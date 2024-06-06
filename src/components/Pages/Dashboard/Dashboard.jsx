@@ -26,7 +26,7 @@ const Dashboard = () => {
                         <li><NavLink to='/dashboard/touristProfile'>My Profile</NavLink></li>
                         <li><NavLink to='myBookings'>My Bookings</NavLink></li>
                         <li><NavLink to='myWishlist'>My Wishlist</NavLink></li>
-                        <li><NavLink to='RequestToAdmin'>Request to Admin</NavLink></li>
+                        <li><NavLink to='requestToAdmin'>Request to Admin</NavLink></li>
                     </ul>
                 }
 
