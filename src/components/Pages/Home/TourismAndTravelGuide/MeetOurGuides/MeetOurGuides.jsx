@@ -14,7 +14,6 @@ const MeetOurGuides = () => {
         }
     })
 
-    console.log(meetTourGuides)
 
 
     if (isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
@@ -25,7 +24,7 @@ const MeetOurGuides = () => {
             <h2 className="text-center text-ttPrimary font-semibold tracking-wider text-3xl mb-5">Meet Our experienced <span className="text-ttSecondary capitalize">Tour Guides</span></h2>
 
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 gap-3">
                 {
                     meetTourGuides.map(meetGuide => <MeetOurGuidesCard 
                         key={meetGuide._id}

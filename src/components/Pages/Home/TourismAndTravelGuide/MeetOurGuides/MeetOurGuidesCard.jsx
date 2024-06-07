@@ -2,27 +2,20 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const MeetOurGuidesCard = ({ meetGuide }) => {
-    const { email, imgURL, role, _id, experience, name } = meetGuide;
+    const { phoneNumber, imgURL, _id, name } = meetGuide;
     return (
         <div className="card border p-1">
-            <div>
-                <div className="px-10 rounded-t-xl pt-10 bg-ttPrimary relative h-32">
-                    <img src={imgURL} alt="tour guide image" className="rounded-full w-28 h-28 absolute -bottom-10 border-4" />
+            <div className='flex'>
+                <div className="bg-ttPrimary relative  rounded-l-xl w-2/12">
+                    <img src={imgURL} alt="tour guide image" className="rounded-full w-20 h-20 absolute left-12 top-1/2 -translate-y-1/2 border-4" />
                 </div>
 
-                <div className="card-body ">
-                    <div className='text-right'>
-                        <h2 className="font-bold text-xl text-ttPrimary">{name}</h2>
-                        <h4 className='capitalize font-medium text-ttTerTiary'>{role}</h4>
-                    </div>
+                <div className="card-body flex flex-row justify-evenly w-10/12 items-center">
+                    <h2 className="font-bold text-xl text-ttPrimary w-2/5">{name}</h2>
 
-                    <div className='text-left space-y-2 font-medium'>
-                        <h2><span className='font-bold'>ID:</span> {_id}</h2>
-                        <h3><span className='font-bold'>Email:</span> {email}</h3>
-                        <h5><span className='font-bold'>Experience:</span> {experience} years</h5>
-                    </div>
+                    <h5 className='w-2/5'><span className='font-bold'>Phone:</span> {phoneNumber}</h5>
 
-                    <div className="card-actions">
+                    <div className="card-actions w-1/5">
                         <Link to={`/tourGuideDetails/${_id}`}>
                             <button className="btn bg-ttPrimary text-white border-ttPrimary">Details</button>
                         </Link>

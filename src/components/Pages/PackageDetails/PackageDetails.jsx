@@ -11,6 +11,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import useTourGuides from "../../Hooks/useTourGuides";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { FaCircleInfo, FaEye } from "react-icons/fa6";
+import { IoIosPricetags } from "react-icons/io";
+import PackageDetailsGuideLists from "./PackageDetailsGuideLists";
 
 
 const PackageDetails = () => {
@@ -62,13 +65,14 @@ const PackageDetails = () => {
             </div>
 
             {/* details */}
-            <div className="my-5">
-                <p className="text-lg font-medium text-ttPrimary"><span className="font-bold underline capitalize text-xl">About this trip:</span> {Description}</p>
+            <div className="mt-10 mb-16">
+                <p className="text-lg font-medium text-ttPrimary"><span className="font-bold underline capitalize text-xl"><FaCircleInfo className="inline mr-1 text-ttSecondary" />About this trip:</span> {Description}</p>
 
-                <h4 className="mt-3 text-lg font-medium text-ttPrimary capitalize"><span className="font-bold underline capitalize text-xl">Tour type:</span> {tourType}</h4>
+                <h4 className="mt-3 text-lg font-medium text-ttPrimary capitalize"><span className="font-bold underline capitalize text-xl"><FaEye className="inline mr-1 text-ttSecondary" />Tour type:</span> {tourType}</h4>
 
-                <h4 className="mt-3 text-lg font-medium capitalize text-ttPrimary"><span className="font-bold underline text-xl">Price:</span> {price}/- BDT</h4>
+                <h4 className="mt-3 text-lg font-medium capitalize text-ttPrimary"><span className="font-bold underline text-xl"><IoIosPricetags className="inline mr-1 text-ttSecondary" />Price:</span> {price}/- BDT</h4>
             </div>
+
 
 
             <div className="grid gap-5 lg:grid-cols-2 items-center overflow-hidden">
@@ -92,8 +96,18 @@ const PackageDetails = () => {
                     </ul>
                 </div>
 
-                {/* booking form */}
+                {/* guides list */}
                 <div className="z-50 w-full lg:order-1">
+                    <h2 className='text-2xl font-bold mb-5'>Explore the tour guides profiles and select a guide for your trip</h2>
+
+                    <PackageDetailsGuideLists></PackageDetailsGuideLists>
+                </div>
+
+            </div>
+
+            {/* booking form */}
+            <div>
+                <div className="w-full">
                     <h2 className="text-center font-bold text-2xl my-5 text-ttPrimary">Booking</h2>
                     <p className="text-center font-medium text-lg text-ttTerTiary mb-5">Fill up the form to book a package</p>
 
@@ -186,7 +200,6 @@ const PackageDetails = () => {
                         </form>
                     </div>
                 </div>
-
             </div>
 
 
