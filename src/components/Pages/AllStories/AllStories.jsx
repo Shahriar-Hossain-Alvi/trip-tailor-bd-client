@@ -22,7 +22,7 @@ const AllStories = () => {
         <div className="py-10">
             <h2 className="text-center font-bold text-3xl text-ttPrimary mb-10">Explore all the stories written by our beloved tourist</h2>
 
-            <div className="grid gap-5 grid-cols-2">
+            <div className="mx-1 md:mx-2 grid lg:gap-5 lg:grid-cols-2">
                 {
                     stories.map(story => <div className="border p-5 rounded-2xl border-ttPrimary " key={story._id}>
                         <TouristStoryCard story={story}></TouristStoryCard>
