@@ -10,11 +10,8 @@ import "./TourType.css"
 
 
 
-
 const TourType = () => {
-
     const axiosPublic = useAxiosPublic();
-
 
     const { data: tourTypes = [] } = useQuery({
         queryKey: ['tourTypes'],
@@ -30,14 +27,28 @@ const TourType = () => {
             <SectionTitle heading={'Tour Type'} subHeading={'Explore Our Diverse Tour Options Tailored to Your Interests'}></SectionTitle>
 
 
-            <div className="pb-10 mx-4">
+            <div className="pb-10 mx-2 md:mx-4">
 
                 <Swiper
-                    slidesPerView={5}
+                    slidesPerView={2}
                     spaceBetween={10}
                     pagination={{
                         clickable: true,
                     }}
+                    breakpoints={{
+                        640: {
+                          slidesPerView: 3,
+                          spaceBetween: 20,
+                        },
+                        768: {
+                          slidesPerView: 4,
+                          spaceBetween: 40,
+                        },
+                        1024: {
+                          slidesPerView: 5,
+                          spaceBetween: 50,
+                        },
+                      }}
                     modules={[Pagination]}
                     className="mySwiper"
                 >

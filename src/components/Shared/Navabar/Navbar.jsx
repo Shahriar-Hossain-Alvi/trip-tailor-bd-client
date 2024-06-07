@@ -65,12 +65,12 @@ const Navbar = () => {
                             </div>
 
                             :
-                            <div className="flex gap-2">
+                            <div className="flex flex-col md:flex-row gap-2">
                                 <Link to='/login'>
-                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Login</button>
+                                    <button className="btn btn-xs md:btn-md bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Login</button>
                                 </Link>
                                 <Link to='/signup'>
-                                    <button className="btn bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Sign Up</button>
+                                    <button className="btn btn-xs md:btn-md bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:border-ttSecondary hover:text-ttSecondary">Sign Up</button>
                                 </Link>
                             </div>
                     }

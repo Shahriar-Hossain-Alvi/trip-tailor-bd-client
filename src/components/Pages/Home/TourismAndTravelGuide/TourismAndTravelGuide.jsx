@@ -15,7 +15,7 @@ const TourismAndTravelGuide = () => {
                 <Tabs
                     selectedTabClassName='text-ttSecondary bg-ttPrimary font-bold font-playfairDisplay border-ttPrimary'
                 >
-                    <TabList className='flex justify-evenly font-bold mb-5 pb-2 w-full cursor-pointer'>
+                    <TabList className='flex justify-evenly font-bold mb-7 items-center w-full cursor-pointer'>
                         <Tab className="w-1/3 text-center py-3 border border-ttPrimaryBg hover:border-ttSecondary">Overview</Tab>
                         <Tab className="w-1/3 text-center py-3 border border-ttPrimaryBg hover:border-ttSecondary">Our Packages</Tab>
                         <Tab className="w-1/3 text-center py-3 border border-ttPrimaryBg hover:border-ttSecondary">Meet Our Guides</Tab>
