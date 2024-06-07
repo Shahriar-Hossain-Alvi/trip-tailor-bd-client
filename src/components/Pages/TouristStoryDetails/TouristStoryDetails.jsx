@@ -20,19 +20,19 @@ const TouristStoryDetails = () => {
     }
 
     return (
-        <div className="container mx-auto">
+        <div className="mx-1 md:mx-2">
             {/* writer details */}
             <div className="flex flex-col gap-2 items-center justify-center my-5">
                 <img className="w-16 h-16 rounded-full" src={imageURL} alt="writer image" />
                 <div>
-                    <h2>{name}</h2>
+                    <h2 className="text-lg font-bold">{name}</h2>
                 </div>
             </div>
 
 
             {/* story details */}
-            <div className="grid grid-cols-3 gap-5 mb-10">
-                <div className="col-span-2">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-10">
+                <div className="lg:col-span-2">
                     <h2 className="text-center text-4xl font-bold text-ttPrimary underline font-playfairDisplay tracking-wider mb-6">Title: {storyTitle}</h2>
 
                     <p className="text-lg font-medium mb-3">{storyDetails}</p>
@@ -52,7 +52,7 @@ const TouristStoryDetails = () => {
             </div>
 
 
-            <div>
+            <div className="flex flex-col items-center mb-10 space-y-2">
                 <h2 className="text-lg font-medium">Like this Story? Share it with your friends</h2>
                 {
                     user ? <div className="flex items-center gap-2">
