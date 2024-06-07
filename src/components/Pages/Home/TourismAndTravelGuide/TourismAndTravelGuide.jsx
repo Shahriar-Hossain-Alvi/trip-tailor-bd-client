@@ -4,6 +4,7 @@ import SectionTitle from '../../../Utility/SectionTitle';
 import 'react-tabs/style/react-tabs.css';
 import OverViewSection from './OverViewSection/OverViewSection';
 import OurPackagesSection from './OurPackagesSection/OurPackagesSection';
+import MeetOurGuides from './MeetOurGuides/MeetOurGuides';
 
 const TourismAndTravelGuide = () => {
     return (
@@ -27,7 +28,7 @@ const TourismAndTravelGuide = () => {
                         <OurPackagesSection></OurPackagesSection>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 3</h2>
+                        <MeetOurGuides></MeetOurGuides>
                     </TabPanel>
                 </Tabs>
             </div>

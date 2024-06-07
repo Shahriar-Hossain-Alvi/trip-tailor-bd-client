@@ -21,6 +21,7 @@ import AdminRoute from "./AdminRoute";
 import TourGuideRoute from "./TourGuideRoute";
 import AddPackage from "../Pages/Dashboard/AdminDashboardRoutes/AddPackage";
 import ManageUsers from "../Pages/Dashboard/AdminDashboardRoutes/ManageUsers";
+import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
       {
         path: '/allPackages',
         element: <AllPackages></AllPackages>
+      },
+      {
+        path: '/tourGuideDetails/:id',
+        element: <TourGuideDetails></TourGuideDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/tourGuide/${params.id}`)
       },
       {
         path: '/community',

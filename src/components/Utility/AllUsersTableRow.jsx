@@ -21,10 +21,13 @@ const AllUsersTableRow = ({ singleUser, index, handleUpdateRole, handleMakeAdmin
         </td>
         <td className='font-medium'>
             {
-                status === 'accepted' ?
-                    <button disabled className="btn">Accepted</button>
+                role === 'admin' ?
+                    <button disabled className="btn">Admin</button>
                     :
-                    <button onClick={() => handleMakeAdmin(_id)} className='btn btn-error text-white'>Make Admin</button>
+                    status === 'accepted' ?
+                        <button disabled className="btn">Accepted</button>
+                        :
+                        <button onClick={() => handleMakeAdmin(_id)} className='btn btn-error text-white'>Make Admin</button>
             }
         </td>
     </tr>
