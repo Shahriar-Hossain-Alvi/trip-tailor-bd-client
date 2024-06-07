@@ -24,6 +24,12 @@ const BookingTableRows = ({ index, booking, handleCancelButton }) => {
                     status === "Accepted" &&
                     <button className="btn btn-sm bg-ttPrimary text-white hover:bg-blue-600">Pay</button>
                 }
+                {
+                    status === "Rejected" &&
+                    <div className="badge badge-error badge-lg text-white gap-2">
+                        Rejected
+                    </div>
+                }
             </td>
         </tr>
     );

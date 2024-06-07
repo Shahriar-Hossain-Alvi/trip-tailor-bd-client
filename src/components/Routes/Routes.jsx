@@ -22,6 +22,7 @@ import TourGuideRoute from "./TourGuideRoute";
 import AddPackage from "../Pages/Dashboard/AdminDashboardRoutes/AddPackage";
 import ManageUsers from "../Pages/Dashboard/AdminDashboardRoutes/ManageUsers";
 import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
+import MyAssignedTours from "../Pages/Dashboard/TourGuideDashboardRoutes/MyAssignedTours";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         path: "tourGuideProfile",
         element: <TourGuideRoute><TourGuideProfile></TourGuideProfile></TourGuideRoute>
+      },
+      {
+        path: 'assignedTours',
+        element: <TourGuideRoute><MyAssignedTours></MyAssignedTours></TourGuideRoute>
       },
 
 
