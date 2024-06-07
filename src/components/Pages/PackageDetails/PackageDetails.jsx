@@ -56,8 +56,8 @@ const PackageDetails = () => {
     }
 
     return (
-        <div className="pt-10 pb-10 container mx-auto bg-ttPrimaryBg">
-            <h2 className="text-center font-black text-5xl font-playfairDisplay tracking-wider text-ttPrimary underline capitalize mb-8">{tripTitle}</h2>
+        <div className="pt-10 pb-10 mx-1 md:mx-2 lg:mx-0 bg-ttPrimaryBg ">
+            <h2 className="text-center font-black text-2xl md:text-4xl lg:text-5xl font-playfairDisplay tracking-wider text-ttPrimary underline capitalize mb-8">{tripTitle}</h2>
 
             {/* gallery */}
             <div>
@@ -75,20 +75,20 @@ const PackageDetails = () => {
 
 
 
-            <div className="grid gap-5 lg:grid-cols-2 items-center overflow-hidden">
+            <div className="grid md:gap-5 lg:grid-cols-2 items-center overflow-hidden">
                 {/* tour plan */}
                 <div className="z-30 w-full lg:order-2 lg:mt-0">
                     <h2 className="text-center text-3xl font-bold underline uppercase mb-5">Tour Plan</h2>
                     <ul className="timeline timeline-vertical">
                         {
-                            tourPlan?.map((day, idx) => <li className="group md:-ml-52 lg:-ml-80 overflow-hidden" key={idx}>
+                            tourPlan?.map((day, idx) => <li className="group -ml-44 md:-ml-72 lg:-ml-80 overflow-hidden" key={idx}>
                                 <div className="timeline-start border p-3 rounded-xl  bg-ttPrimary text-ttSecondary font-bold group-hover:bg-ttSecondary group-hover:text-ttPrimary transition">Day {idx + 1}</div>
                                 <div className="timeline-middle">
                                     <CheckMarkIcon></CheckMarkIcon>
                                 </div>
                                 <div className="timeline-end timeline-box group-hover:border-ttSecondary transition">
-                                    <h2 className="font-bold text-ttPrimary">{day.title}</h2>
-                                    <p className="text-ttTerTiary font-medium">{day.description}</p>
+                                    <h2 className="text-sm md:text-base font-medium md:font-bold text-ttPrimary">{day.title}</h2>
+                                    <p className="text-ttTerTiary text-sm md:text-base md:font-medium">{day.description}</p>
                                 </div>
                                 <hr />
                             </li>)
@@ -97,8 +97,8 @@ const PackageDetails = () => {
                 </div>
 
                 {/* guides list */}
-                <div className="z-50 w-full lg:order-1">
-                    <h2 className='text-2xl font-bold mb-5'>Explore the tour guides profiles and select a guide for your trip</h2>
+                <div className="z-50 w-11/12 mx-auto lg:w-full lg:order-1">
+                    <h2 className='text-lg md:text-2xl font-bold mb-5'>Explore the tour guides profiles and select a guide for your trip</h2>
 
                     <PackageDetailsGuideLists></PackageDetailsGuideLists>
                 </div>
@@ -106,19 +106,19 @@ const PackageDetails = () => {
             </div>
 
             {/* booking form */}
-            <div>
-                <div className="w-full">
-                    <h2 className="text-center font-bold text-2xl my-5 text-ttPrimary">Booking</h2>
-                    <p className="text-center font-medium text-lg text-ttTerTiary mb-5">Fill up the form to book a package</p>
+            <div className="w-full">
+                <h2 className="text-center font-bold text-2xl my-5 text-ttPrimary">Booking</h2>
+                <p className="text-center font-medium text-lg text-ttTerTiary mb-5">Fill up the form to book a package</p>
 
 
-                    {/* form start */}
+                {/* form start */}
+                <div className="w-11/12 mx-auto">
                     <div className="card shrink-0 w-full mx-auto shadow-ttTerTiary border border-ttTerTiary border-opacity-25">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
-                            <div className="flex justify-between items-center gap-5">
+                            <div className="flex flex-wrap md:flex-nowrap justify-between items-center gap-5">
                                 {/* name */}
-                                <div className="form-control w-2/5">
+                                <div className="form-control md:w-2/5">
                                     <label className="label">
                                         <span className="label-text">Name<span className="text-red-500">*</span></span>
                                     </label>
@@ -126,7 +126,7 @@ const PackageDetails = () => {
                                 </div>
 
                                 {/* email */}
-                                <div className="form-control w-2/5">
+                                <div className="form-control md:w-2/5">
                                     <label className="label">
                                         <span className="label-text">Email<span className="text-red-500">*</span></span>
                                     </label>
@@ -134,7 +134,7 @@ const PackageDetails = () => {
                                 </div>
 
                                 {/* image */}
-                                <div className="form-control w-1/5">
+                                <div className="form-control md:w-1/5">
                                     <h2>Preview</h2>
                                     <img src={user?.photoURL} className="w-16 h-16" alt="" />
                                 </div>
@@ -142,7 +142,7 @@ const PackageDetails = () => {
 
 
 
-                            <div className="flex gap-5">
+                            <div className="flex flex-col md:flex-row gap-5">
                                 {/* price */}
                                 <div className="form-control w-full">
                                     <label className="label">
@@ -202,8 +202,6 @@ const PackageDetails = () => {
                 </div>
             </div>
 
-
-            {/* todo add confirmation modal for booking confirm */}
         </div>
     );
 };

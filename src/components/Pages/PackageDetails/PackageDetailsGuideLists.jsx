@@ -18,15 +18,15 @@ const PackageDetailsGuideLists = () => {
     if (isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
     return (
-        <div>
+        <div className='mx-1 md:mx-2 grid gap-1 md:gap-0 grid-cols-2 md:grid-cols-1'>
             {
                 packageDetailsTourGuides.map(singlePackageDetailsTourGuide => <Link key={singlePackageDetailsTourGuide._id}
                     to={`/tourGuideDetails/${singlePackageDetailsTourGuide._id}`}
                 >
-                    <div className='flex items-center gap-4 my-2 border p-2 rounded-xl border-ttSecondary hover:text-white hover:bg-ttPrimary'>
-                        <img className='w-12 h-12 rounded-full' src={singlePackageDetailsTourGuide.imgURL} alt="" />
-                        <h2>Name: {singlePackageDetailsTourGuide.name}</h2>
-                        <p>Experience: {singlePackageDetailsTourGuide.experience} years</p>
+                    <div className='md:flex md:items-center md:gap-4 my-2 border p-2 rounded-xl border-ttSecondary hover:text-white hover:bg-ttPrimary'>
+                        <img className='w-12 h-12 rounded-full mx-auto md:mx-0 my-2 md:my-0' src={singlePackageDetailsTourGuide.imgURL} alt="" />
+                        <h2><span className='font-bold'>Name:</span> {singlePackageDetailsTourGuide.name}</h2>
+                        <p><span className='font-bold'>Experience:</span> {singlePackageDetailsTourGuide.experience} years</p>
                     </div>
                 </Link>)
             }
