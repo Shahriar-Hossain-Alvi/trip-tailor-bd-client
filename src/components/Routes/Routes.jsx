@@ -23,6 +23,7 @@ import AddPackage from "../Pages/Dashboard/AdminDashboardRoutes/AddPackage";
 import ManageUsers from "../Pages/Dashboard/AdminDashboardRoutes/ManageUsers";
 import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
 import MyAssignedTours from "../Pages/Dashboard/TourGuideDashboardRoutes/MyAssignedTours";
+import TourTypesByCategory from "../Pages/TourTypesByCategory/TourTypesByCategory";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: '/storyDetails/:id',
         element: <TouristStoryDetails></TouristStoryDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/story/${params.id}`)
+        loader: ({ params }) => fetch(`https://trip-tailor-bd-server.vercel.app/story/${params.id}`)
       },
       {
         path: '/allStories',
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: '/packageDetails/:id',
         element: <PackageDetails></PackageDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/package/${params.id}`)
+        loader: ({ params }) => fetch(`https://trip-tailor-bd-server.vercel.app/package/${params.id}`)
       },
       {
         path: '/allPackages',
@@ -58,7 +59,16 @@ const router = createBrowserRouter([
       {
         path: '/tourGuideDetails/:id',
         element: <TourGuideDetails></TourGuideDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/tourGuide/${params.id}`)
+        loader: ({ params }) => fetch(`https://trip-tailor-bd-server.vercel.app/tourGuide/${params.id}`)
+      },
+      {
+        path: '/packages/:tourTypes',
+        element: <TourTypesByCategory></TourTypesByCategory>,
+        // loader: ({params})=> fetch(`http://localhost:5000/tour-types/${params.tourTypes}`)
+        loader: ({ params }) => {
+          const encodedTourTypes = encodeURIComponent(params.tourTypes);
+          return fetch(`http://localhost:5000/tour-types/${encodedTourTypes}`);
+        }
       },
       {
         path: '/community',

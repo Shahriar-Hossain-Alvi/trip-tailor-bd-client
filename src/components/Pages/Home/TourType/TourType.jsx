@@ -37,31 +37,30 @@ const TourType = () => {
                     }}
                     breakpoints={{
                         640: {
-                          slidesPerView: 3,
-                          spaceBetween: 20,
+                            slidesPerView: 3,
+                            spaceBetween: 20,
                         },
                         768: {
-                          slidesPerView: 4,
-                          spaceBetween: 40,
+                            slidesPerView: 4,
+                            spaceBetween: 40,
                         },
                         1024: {
-                          slidesPerView: 5,
-                          spaceBetween: 50,
+                            slidesPerView: 5,
+                            spaceBetween: 50,
                         },
-                      }}
+                    }}
                     modules={[Pagination]}
                     className="mySwiper"
                 >
                     {
                         tourTypes.map((tourType, idx) => <SwiperSlide className="mb-10" key={idx}>
-                            <Link className="h-24 flex items-center justify-center text-lg font-bold tracking-widest font-playfairDisplay capitalize text-ttSecondary hover:text-ttPrimary">
+                            <Link to={`/packages/${tourType}`} className="h-24 flex items-center justify-center text-lg font-bold capitalize text-ttSecondary hover:text-ttPrimary w-full">
                                 {tourType}
                             </Link>
                         </SwiperSlide>)
                     }
                 </Swiper>
             </div>
-
         </div>
     );
 };

@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://trip-tailor-bd-server.vercel.app'
 })
 
 const useAxiosSecure = () => {

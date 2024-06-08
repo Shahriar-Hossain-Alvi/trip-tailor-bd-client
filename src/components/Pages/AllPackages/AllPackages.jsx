@@ -2,8 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import DaisyLoadingSpinner from "../../Utility/DaisyLoadingSpinner";
 import OurPackagesCard from "../Home/TourismAndTravelGuide/OurPackagesSection/OurPackagesCard";
-import { Link } from "react-router-dom";
-
 const AllPackages = () => {
     const axiosPublic = useAxiosPublic();
 
@@ -26,12 +24,6 @@ const AllPackages = () => {
                 {
                     AllPackages.map(singlePackage => <OurPackagesCard key={singlePackage._id} singlePackage={singlePackage}></OurPackagesCard>)
                 }
-            </div>
-
-            <div className="text-center mt-5">
-                <Link to='/allPackages'>
-                    <button className="btn bg-ttPrimary text-white hover:bg-ttSecondary">View All Packages</button>
-                </Link>
             </div>
         </div>
     );

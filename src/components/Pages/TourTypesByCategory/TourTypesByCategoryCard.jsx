@@ -1,20 +1,20 @@
-import { FaHeart } from "react-icons/fa";
+
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
-import useAuth from "../../../../Hooks/useAuth";
-import Swal from "sweetalert2";
-import { ToastContainer, toast } from "react-toastify";
+import { FaHeart } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/useAuth';
+import { ToastContainer, toast } from 'react-toastify';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
-const OurPackagesCard = ({ singlePackage }) => {
+const TourTypesByCategoryCard = ({ singleCategoryInfo }) => {
     const { user } = useAuth();
-    const axiosSecure = useAxiosSecure();
-    const { _id, spotImages, tourType, tripTitle, price } = singlePackage;
-
+    const { _id, spotImages, tourType, tripTitle, price } = singleCategoryInfo;
     const firstImage = spotImages[0];
+    const axiosSecure = useAxiosSecure();
 
     const handleAddToWishList = async (id) => {
-        if(!user){
+        if (!user) {
             return toast.error('Login first before adding to wishlist')
         }
         const wishlist = {
@@ -47,6 +47,7 @@ const OurPackagesCard = ({ singlePackage }) => {
         }
     }
 
+
     return (
         <div className="p-5 border border-ttTerTiary rounded border-opacity-20 group h-[400px] flex flex-col">
             <ToastContainer></ToastContainer>
@@ -71,8 +72,8 @@ const OurPackagesCard = ({ singlePackage }) => {
     );
 };
 
-OurPackagesCard.propTypes = {
-    singlePackage: PropTypes.object
+TourTypesByCategoryCard.propTypes = {
+    singleCategoryInfo: PropTypes.object
 }
 
-export default OurPackagesCard;
+export default TourTypesByCategoryCard;

@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
     // save user
     const saveUser = async userInfo => {
         const data = await axios.put(
-            'http://localhost:5000/users',
+            'https://trip-tailor-bd-server.vercel.app/users',
             userInfo
         )
         return data;
