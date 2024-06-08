@@ -25,6 +25,7 @@ import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
 import MyAssignedTours from "../Pages/Dashboard/TourGuideDashboardRoutes/MyAssignedTours";
 import TourTypesByCategory from "../Pages/TourTypesByCategory/TourTypesByCategory";
 import AboutUs from "../Pages/About Us/AboutUs";
+import ContactUs from "../Pages/Contact Us/ContactUs";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -65,7 +66,6 @@ const router = createBrowserRouter([
       {
         path: '/packages/:tourTypes',
         element: <TourTypesByCategory></TourTypesByCategory>,
-        // loader: ({params})=> fetch(`http://localhost:5000/tour-types/${params.tourTypes}`)
         loader: ({ params }) => {
           const encodedTourTypes = encodeURIComponent(params.tourTypes);
           return fetch(`https://trip-tailor-bd-server.vercel.app/tour-types/${encodedTourTypes}`);
@@ -78,7 +78,11 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <AboutUs></AboutUs>
-      }
+      },
+      {
+        path: '/contact',
+        element: <ContactUs></ContactUs>
+      },
     ]
   },
 

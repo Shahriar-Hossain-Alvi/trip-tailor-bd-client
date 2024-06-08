@@ -32,6 +32,10 @@ const AboutUs = () => {
 
                 <p className='text-ttPrimary font-medium mb-5'> <FaHandshake className='inline text-lg text-ttSecondary' /><span className='underline font-bold text-lg'>What We Offer</span> From cultural immersions to adventure expeditions, we offer a diverse range of tours tailored to suit every type of traveler. Whether you are looking for a relaxing getaway or an action-packed adventure, we have something for everyone.
                 </p>
+
+
+                <p className='text-lg font-medium text-ttPrimary max-w-lg mx-auto text-center mb-10'><span className='text-xl font-bold'>Ready to start your adventure?</span> Book a tour with us today and experience the best of <span className='font-bold uppercase underline'>Bangladesh</span>.
+</p>
             </div>
         </div>
     );
