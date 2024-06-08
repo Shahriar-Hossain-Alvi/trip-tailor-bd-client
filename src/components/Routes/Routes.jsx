@@ -24,6 +24,7 @@ import ManageUsers from "../Pages/Dashboard/AdminDashboardRoutes/ManageUsers";
 import TourGuideDetails from "../Pages/TourGuideDetails/TourGuideDetails";
 import MyAssignedTours from "../Pages/Dashboard/TourGuideDashboardRoutes/MyAssignedTours";
 import TourTypesByCategory from "../Pages/TourTypesByCategory/TourTypesByCategory";
+import AboutUs from "../Pages/About Us/AboutUs";
 // import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: '/community',
         element: <Community></Community>
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>
       }
     ]
   },
