@@ -21,10 +21,10 @@ const Dashboard = () => {
 
 
     return (
-        <div className="flex flex-row-reverse gap-6">
+        <div className="flex flex-col lg:flex-row-reverse gap-6">
             <ScrollRestoration></ScrollRestoration>
             {/* dashboard sidebar */}
-            <div className="w-72 pt-12 items-center min-h-screen bg-ttPrimary text-white flex flex-col">
+            <div className="w-full lg:w-72 pt-12 items-center lg:min-h-screen bg-ttPrimary text-white flex flex-col">
                 <Link to='/' className="flex flex-col text-center mb-5 group">
                     <p className="text-3xl 
                     font-semibold">
@@ -33,10 +33,10 @@ const Dashboard = () => {
                     <p className="text-xs  text-ttSecondary">BANGLADESH</p>
                 </Link>
 
-                <div className="flex-1">
+                <div className="lg:flex-1 w-full">
                     {/* routes for tourist */}
                     {
-                        role === 'tourist' && <ul id="dashboardMenu" className="menu uppercase items-end space-y-1 text-lg">
+                        role === 'tourist' && <ul id="dashboardMenu" className="menu uppercase lg:items-end space-y-1 text-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1">
                             <li><NavLink to='/dashboard/touristProfile'><CgProfile /> My Profile</NavLink></li>
                             <li><NavLink to='myBookings'><MdOutlinePlaylistAddCheck /> My Bookings</NavLink></li>
                             <li><NavLink to='myWishlist'><FaHeart /> My Wishlist</NavLink></li>
@@ -47,7 +47,7 @@ const Dashboard = () => {
 
                     {/* routes for tour guide */}
                     {
-                        role === "tour guide" && <ul id="dashboardMenu" className="menu uppercase items-end text-lg space-y-1">
+                        role === "tour guide" && <ul id="dashboardMenu" className="menu uppercase lg:items-end text-lg space-y-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1">
                             <li><NavLink to='/dashboard/tourGuideProfile'><CgProfile /> My Profile</NavLink></li>
                             <li><NavLink to='assignedTours'><AiOutlineSchedule /> My Assigned Tours</NavLink></li>
                         </ul>
@@ -56,7 +56,7 @@ const Dashboard = () => {
 
                     {/* routes for admin */}
                     {
-                        role === 'admin' && <ul id="dashboardMenu" className="menu uppercase items-end text-lg space-y-1">
+                        role === 'admin' && <ul id="dashboardMenu" className="menu uppercase lg:items-end text-lg space-y-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1">
                             <li><NavLink to='/dashboard/adminProfile'>
                             <CgProfile /> My Profile</NavLink></li>
                             <li><NavLink to='addPackage'><IoMdAddCircleOutline /> Add Package</NavLink></li>
