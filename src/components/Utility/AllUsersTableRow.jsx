@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const AllUsersTableRow = ({ singleUser, index, handleUpdateRole, handleMakeAdmin }) => {
     const { _id, role, name, email, status } = singleUser;
 
+
     return <tr className=' hover'>
         <th>{index + 1}</th>
         <td className='text-ttPrimary font-medium'>{name}</td>

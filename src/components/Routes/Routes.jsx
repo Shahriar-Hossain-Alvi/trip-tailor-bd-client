@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         // loader: ({params})=> fetch(`http://localhost:5000/tour-types/${params.tourTypes}`)
         loader: ({ params }) => {
           const encodedTourTypes = encodeURIComponent(params.tourTypes);
-          return fetch(`http://localhost:5000/tour-types/${encodedTourTypes}`);
+          return fetch(`https://trip-tailor-bd-server.vercel.app/tour-types/${encodedTourTypes}`);
         }
       },
       {

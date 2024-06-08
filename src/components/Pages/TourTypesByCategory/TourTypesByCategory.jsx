@@ -1,11 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import TourTypesByCategoryCard from "./TourTypesByCategoryCard";
+import useAuth from "../../Hooks/useAuth";
+import DaisyLoadingSpinner from "../../Utility/DaisyLoadingSpinner";
 
 const TourTypesByCategory = () => {
 
     const categoryInfo = useLoaderData();
 
-    console.log(categoryInfo);
+    const {loading} = useAuth();
+    if(loading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
     return (
         <div className="py-10">

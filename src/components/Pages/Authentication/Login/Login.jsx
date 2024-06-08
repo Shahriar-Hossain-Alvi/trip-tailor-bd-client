@@ -29,7 +29,7 @@ const Login = () => {
                 toast.success("Sign In successful");
                 setTimeout(() => {
                     navigate(from, { replace: true });
-                }, 2000)
+                }, 2500)
             })
             .catch(error => {
                 console.log(error);
@@ -46,9 +46,10 @@ const Login = () => {
     };
     //hide animation and show form
     setTimeout(() => {
+        document.getElementById('loginAnimation').classList.remove('block');
         document.getElementById('loginAnimation').classList.add('hidden');
         document.getElementById('hero').classList.remove('hidden')
-    }, 1900);
+    }, 2400);
 
 
     //email-password login
@@ -67,7 +68,7 @@ const Login = () => {
                         toast.success('Login Successful');
                         setTimeout(() => {
                             navigate(from, { replace: true });
-                        }, 2000)
+                        }, 2500)
                     }
                 })
                 .catch(error => {
@@ -81,6 +82,7 @@ const Login = () => {
     return (
         <div className="bg-ttPrimaryBg overflow-y-hidden  pb-20">
             <ToastContainer></ToastContainer>
+
             <div className="hero" style={{ backgroundImage: `url(${loginBanner})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -94,7 +96,14 @@ const Login = () => {
                 <h2 className="text-2xl font-semibold">Login with your email or use google sign in below</h2>
             </div>
 
-            <div id="hero" className="hero hidden animate__animated animate__fadeInUp">
+            <div id="loginAnimation" className="block">
+                <Lottie options={defaultOptions}
+                    height={400}
+                    width={400}>
+                </Lottie>
+            </div>
+
+            <div id="hero" className="hero hidden  animate__animated animate__fadeInUpBig">
                 <div className="hero-content w-full flex flex-col lg:flex-row">
 
                     {/* google sign in */}
@@ -153,13 +162,6 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div id="loginAnimation">
-                <Lottie options={defaultOptions}
-                    height={400}
-                    width={400}>
-                </Lottie>
             </div>
         </div>
     );

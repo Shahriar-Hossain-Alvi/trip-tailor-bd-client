@@ -3,19 +3,25 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import SectionTitle from "../../../Utility/SectionTitle";
 import AllUsersTableRow from "../../../Utility/AllUsersTableRow";
 import Swal from "sweetalert2";
+import { useState } from "react";
+import DaisyLoadingSpinner from "../../../Utility/DaisyLoadingSpinner";
 
 
 const ManageUsers = () => {
     const axiosSecure = useAxiosSecure();
+    const [search, setSearch] = useState('');
 
-    const { data: allUsers = [], refetch } = useQuery({
-        queryKey: ['allUsers'],
+    //get all users data
+    const { data: allUsers = [], refetch, isLoading } = useQuery({
+        queryKey: ['allUsers', search],
         queryFn: async () => {
-            const res = await axiosSecure.get('/users')
+            const res = await axiosSecure.get(`/users?search=${search}`)
             return res.data;
         }
     });
 
+
+    //make admin button
     const handleMakeAdmin = id => {
         Swal.fire({
             title: "Are your sure you want to make this user admin?",
@@ -44,6 +50,7 @@ const ManageUsers = () => {
 
     }
 
+    // handle tour guide button
     const handleUpdateRole = async (id) => {
         Swal.fire({
             title: "Make this user tour guide?",
@@ -71,12 +78,25 @@ const ManageUsers = () => {
         });
     }
 
+
+    // handle search user by name
+    const handleSearch = e => {
+        e.preventDefault();
+        const searchedText = e.target.search.value
+        setSearch(searchedText);
+    }
+
     return (
         <div>
             <SectionTitle
                 heading={'All Users'}
                 subHeading={'This is the list of all users you can make someone admin or tour guide from the table'}
             ></SectionTitle>
+
+            <form className="max-w-sm mb-10 mx-auto flex gap-3" onSubmit={handleSearch}>
+                <input type="text" name="search" className="input-bordered input w-full" placeholder="Search a user by name" />
+                <input type="submit" value='search' className="btn bg-ttPrimary hover:bg-ttSecondary text-white" />
+            </form>
 
 
             <div className="overflow-x-auto">
@@ -95,7 +115,13 @@ const ManageUsers = () => {
                     <tbody>
                         {/* rows */}
                         {
-                            allUsers.map((singleUser, index) => <AllUsersTableRow key={singleUser._id} index={index} singleUser={singleUser} handleUpdateRole={handleUpdateRole} handleMakeAdmin={handleMakeAdmin}></AllUsersTableRow>)
+                            isLoading
+                                ?
+                                <DaisyLoadingSpinner></DaisyLoadingSpinner>
+                                :
+                                allUsers.map((singleUser, index) => <AllUsersTableRow key={singleUser._id} index={index} singleUser={singleUser} handleUpdateRole={handleUpdateRole} handleMakeAdmin={handleMakeAdmin}
+                                    isLoading={isLoading}
+                                ></AllUsersTableRow>)
                         }
                     </tbody>
                 </table>
