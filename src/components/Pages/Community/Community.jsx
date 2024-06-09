@@ -37,9 +37,8 @@ const Community = () => {
                 subHeading={''}
             ></SectionTitle>
 
-            <h2>Heres a short overview of our users and collections</h2>
-            <div>
-                <h2 className='text-3xl font-bold text-center font-montserrat mb-6'>Devices we've fixed</h2>
+            <div className="my-10">
+                <h2 className='text-3xl font-bold text-center font-montserrat mb-6'>Heres a short overview of our users and collections</h2>
 
                 <div className='grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-2 justify-between items-center text-center bg-ttPrimary py-8 text-white px-10'>
                     <div>
