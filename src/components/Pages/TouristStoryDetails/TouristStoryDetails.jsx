@@ -11,7 +11,7 @@ const TouristStoryDetails = () => {
 
     const { storyTitle, imageURL, name, storyDetails, tourType, spotImage, rating } = story;
 
-    const shareUrl = `http://localhost:5173/storyDetails/${id}`;
+    const shareUrl = `http://trip-tailor-bd.firebaseapp.com/storyDetails/${id} || https://trip-tailor-bd.web.app/storyDetails/${id}`;
     const title = { storyTitle }
 
 
