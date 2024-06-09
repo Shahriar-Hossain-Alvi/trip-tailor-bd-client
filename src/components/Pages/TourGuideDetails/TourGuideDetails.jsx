@@ -10,7 +10,6 @@ import { ImSpinner9 } from "react-icons/im";
 const TourGuideDetails = () => {
     const tourGuideDetails = useLoaderData();
     const { user, loading } = useAuth();
-    // console.log(tourGuideDetails);
     const axiosSecure = useAxiosSecure();
     const { register, handleSubmit, reset } = useForm();
 

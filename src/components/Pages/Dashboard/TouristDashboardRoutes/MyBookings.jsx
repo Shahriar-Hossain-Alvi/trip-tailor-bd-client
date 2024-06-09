@@ -40,7 +40,6 @@ const MyBookings = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/booking/${id}`)
                     .then(res => {
-                        console.log(res);
                         if (res.data.deletedCount > 0) {
                             refetch();
                             Swal.fire({

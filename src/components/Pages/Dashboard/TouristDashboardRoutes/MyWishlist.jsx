@@ -47,8 +47,6 @@ const MyWishlist = () => {
 
     if(isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
-    console.log(MyWishlist);
-
     return (
         <div>
             <SectionTitle 

@@ -38,7 +38,6 @@ const RequestToaAdmin = () => {
         }
 
         const res = await axiosSecure.put('/users', updatedUserInfo);
-        console.log(res);
 
         if (res.data.modifiedCount > 0) {
             setFormLoading(false);

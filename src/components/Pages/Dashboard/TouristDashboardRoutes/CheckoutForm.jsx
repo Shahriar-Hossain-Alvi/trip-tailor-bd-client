@@ -87,7 +87,7 @@ const CheckoutForm = ({ price, bookingId }) => {
                 }
 
                 const res = await axiosSecure.post('/payments', paymentInfo);
-                console.log('payment saved', res.data);
+                
                 if (res.data?.insertedId) {
                     toast.success('Thank you for purchasing.')
                 }

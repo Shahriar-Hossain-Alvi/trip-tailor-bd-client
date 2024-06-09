@@ -19,8 +19,6 @@ const MyAssignedTours = () => {
         }
     })
 
-    console.log(assignedTours);
-
     if (loading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
     const handleAcceptButton = async (id) => {

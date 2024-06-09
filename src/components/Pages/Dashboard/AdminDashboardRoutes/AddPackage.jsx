@@ -102,7 +102,6 @@ const AddPackage = () => {
             Description: data.Description,
             tourPlan
         }
-        console.log(packageInfo);
 
         const packageRes = await axiosSecure.post('/packages', packageInfo);
 
