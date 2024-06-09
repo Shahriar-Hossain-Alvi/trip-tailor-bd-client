@@ -13,6 +13,8 @@ const MyBookings = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
+
+    //for booking data fetching
     const { data: myBookings = [], isLoading, refetch } = useQuery({
         queryKey: ['myBookings', user],
         queryFn: async () => {
@@ -54,7 +56,7 @@ const MyBookings = () => {
     }
 
     return (
-        <div>
+        <div className="mb-10">
             <SectionTitle
                 heading={'Manage Your Bookings'}
                 subHeading={"This list shows all the packages you've booked. You can Cancel your chosen package or Pay to confirm your bookings"}

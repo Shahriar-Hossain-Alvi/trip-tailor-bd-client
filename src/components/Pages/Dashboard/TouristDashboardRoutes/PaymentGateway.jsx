@@ -1,10 +1,5 @@
 import { loadStripe } from '@stripe/stripe-js';
-import {
-    PaymentElement,
-    Elements,
-    useStripe,
-    useElements,
-} from '@stripe/react-stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -27,7 +22,7 @@ const PaymentGateway = () => {
         }
     })
 
-    if(isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
+    if (isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
     const getPrice = bookingPrice.map(price => price.price)
     const price = getPrice[0];
