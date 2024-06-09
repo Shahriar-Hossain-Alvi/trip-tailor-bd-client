@@ -37,7 +37,7 @@ const Blogs = () => {
             <ToastContainer></ToastContainer>
             <SectionTitle
                 heading={'Welcome to our blogs page'}
-                subHeading={'Read the stories and reviews from our users'}
+                subHeading={'Read the reviews from our users'}
             ></SectionTitle>
 
             {/* reviews */}

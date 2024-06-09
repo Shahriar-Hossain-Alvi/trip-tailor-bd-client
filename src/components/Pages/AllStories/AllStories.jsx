@@ -24,7 +24,7 @@ const AllStories = () => {
 
             <div className="mx-1 md:mx-2 grid gap-2 md:gap-3 lg:gap-5 lg:grid-cols-2">
                 {
-                    stories.map(story => <div className="border p-5 rounded-2xl border-ttPrimary " key={story._id}>
+                    stories.map(story => <div className="border p-5 rounded-2xl border-ttPrimary" key={story._id}>
                         <TouristStoryCard story={story}></TouristStoryCard>
                     </div>)
                 }
