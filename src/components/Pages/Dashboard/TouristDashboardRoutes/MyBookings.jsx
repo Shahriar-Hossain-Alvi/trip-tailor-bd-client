@@ -42,7 +42,7 @@ const MyBookings = () => {
                         if (res.data.deletedCount > 0) {
                             refetch();
                             Swal.fire({
-                                title: "Deleted!",
+                                title: "Cancelled!",
                                 text: "Your booking has been canceled.",
                                 icon: "success"
                             });
@@ -63,12 +63,10 @@ const MyBookings = () => {
             {
                 totalBookings > 3 && <div className="text-center mb-7">
                     <h2 className="badge badge-success text-white">🎊 Congratulations you have got a discount offer 🎉</h2>
+
+                    <CongratsConfetti></CongratsConfetti>
                 </div>
             }
-            {
-                totalBookings > 3 && <CongratsConfetti></CongratsConfetti>
-            }
-
             <div className="overflow-x-auto">
                 <table className="table table-xs md:table-md  lg:table-lg">
                     {/* head */}

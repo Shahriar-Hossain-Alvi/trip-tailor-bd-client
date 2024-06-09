@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const BookingTableRows = ({ index, booking, handleCancelButton }) => {
     const { _id, date, price, tripTitle, selectedTourGuide, status } = booking;
-
-    // todo cancel btn function
-
-
 
     return (
         <tr className='text-center hover'>
@@ -22,7 +19,9 @@ const BookingTableRows = ({ index, booking, handleCancelButton }) => {
                 }
                 {
                     status === "Accepted" &&
-                    <button className="btn btn-sm bg-ttPrimary text-white hover:bg-blue-600">Pay</button>
+                    <Link booking={booking} to={`/dashboard/myBookings/payment/${_id}`}>
+                        <button className="btn btn-sm bg-ttPrimary text-white hover:bg-blue-600">Pay</button>
+                    </Link>
                 }
                 {
                     status === "Rejected" &&

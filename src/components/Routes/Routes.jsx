@@ -27,6 +27,7 @@ import TourTypesByCategory from "../Pages/TourTypesByCategory/TourTypesByCategor
 import AboutUs from "../Pages/About Us/AboutUs";
 import ContactUs from "../Pages/Contact Us/ContactUs";
 import Blogs from "../Pages/Blogs/Blogs";
+import PaymentGateway from "../Pages/Dashboard/TouristDashboardRoutes/PaymentGateway";
 
 
 const router = createBrowserRouter([
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: "requestToAdmin",
         element: <RequestToaAdmin></RequestToaAdmin>
+      },
+      {
+        path: "myBookings/payment/:id",
+        element: <PaymentGateway></PaymentGateway>
       },
 
 
