@@ -5,9 +5,11 @@ import DaisyLoadingSpinner from "../../../Utility/DaisyLoadingSpinner";
 import SectionTitle from "../../../Utility/SectionTitle";
 import BookingTableRows from "../../../Utility/BookingTableRows";
 import Swal from "sweetalert2";
+import CongratsConfetti from "../../../Utility/CongratsConfetti";
 
 
 const MyBookings = () => {
+
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
@@ -18,6 +20,8 @@ const MyBookings = () => {
             return res.data;
         }
     });
+
+    const totalBookings = myBookings.length;
 
     if (isLoading) return <DaisyLoadingSpinner></DaisyLoadingSpinner>
 
@@ -55,7 +59,16 @@ const MyBookings = () => {
                 heading={'Manage Your Bookings'}
                 subHeading={"This list shows all the packages you've booked. You can Cancel your chosen package or Pay to confirm your bookings"}
             ></SectionTitle>
-            
+
+            {
+                totalBookings > 3 && <div className="text-center mb-7">
+                    <h2 className="badge badge-success text-white">🎊 Congratulations you have got a discount offer 🎉</h2>
+                </div>
+            }
+            {
+                totalBookings > 3 && <CongratsConfetti></CongratsConfetti>
+            }
+
             <div className="overflow-x-auto">
                 <table className="table table-xs md:table-md  lg:table-lg">
                     {/* head */}
@@ -81,5 +94,6 @@ const MyBookings = () => {
         </div>
     );
 };
+
 
 export default MyBookings;

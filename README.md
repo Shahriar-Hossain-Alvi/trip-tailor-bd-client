@@ -2,6 +2,7 @@
 
 - Admin username: admin@triptailor.com
 - Admin password: admin@triptailor.com
+
 - Live link: https://trip-tailor-bd.web.app/
 - Live link 2: https://trip-tailor-bd.firebaseapp.com/
 
@@ -36,6 +37,8 @@ users story section
 - **My Wishlist (Tourist):** users can add packages n their wishlist and remove them from the list 
 
 - **My Bookings (Tourist):** users can see the packages booked by them, their status (In review, accepted, rejected). Also a user can cancel a booked package from the list if it is In Review and Make online payment if the booking is Accepted 
+
+- **Payment Gateway:** Users can pay their package price using cards with the help of STRIPE online payment gateway
 
 - **Responsiveness:** Responsive design for *mobile*, *tablet* and *pc*
 

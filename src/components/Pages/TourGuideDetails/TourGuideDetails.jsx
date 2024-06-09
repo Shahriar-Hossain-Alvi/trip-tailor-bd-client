@@ -74,7 +74,7 @@ const TourGuideDetails = () => {
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div>
                                 {/* rating */}
-                                <div className="form-control md:w-2/5">
+                                <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Rating (out of 5)<span className="text-red-500">*</span></span>
                                     </label>

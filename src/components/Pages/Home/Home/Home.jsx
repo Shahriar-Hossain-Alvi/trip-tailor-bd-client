@@ -4,8 +4,8 @@ import TourismAndTravelGuide from "../TourismAndTravelGuide/TourismAndTravelGuid
 import TouristStory from "../TouristStory/TouristStory";
 
 
-
 const Home = () => {
+
 
     return (
         <div>

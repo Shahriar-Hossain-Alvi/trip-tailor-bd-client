@@ -20,7 +20,7 @@ const AllPackages = () => {
         <div className="py-10 container mx-auto">
             <h2 className="text-center text-ttPrimary font-semibold tracking-wider text-3xl mb-5">All Packages</h2>
             <p className="text-center font-medium text-lg">Explore all the packages we offer</p>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {
                     AllPackages.map(singlePackage => <OurPackagesCard key={singlePackage._id} singlePackage={singlePackage}></OurPackagesCard>)
                 }

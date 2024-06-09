@@ -27,7 +27,6 @@ import TourTypesByCategory from "../Pages/TourTypesByCategory/TourTypesByCategor
 import AboutUs from "../Pages/About Us/AboutUs";
 import ContactUs from "../Pages/Contact Us/ContactUs";
 import Blogs from "../Pages/Blogs/Blogs";
-// import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
 const router = createBrowserRouter([
@@ -87,7 +86,7 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <ContactUs></ContactUs>
-      },
+      }
     ]
   },
 
