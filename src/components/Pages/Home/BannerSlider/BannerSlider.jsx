@@ -45,7 +45,7 @@ const BannerSlider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-left text-white w-full flex justify-start py-20">
                             <div className="ml-10 max-w-2xl">
-                                <h1 className="mb-5 text-5xl font-bold">Flavours Of Bangladesh</h1>
+                                <h1 className="mb-5 text-4xl md:text-5xl font-bold">Flavours Of Bangladesh</h1>
                                 <p className="mb-5">Explore the culinary of our BD</p>
                             </div>
                         </div>
@@ -58,7 +58,7 @@ const BannerSlider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-left text-white w-full flex justify-start py-20">
                             <div className="ml-10 max-w-2xl">
-                                <h1 className="mb-5 text-5xl font-bold">Paharpur Buddhist Monastery</h1>
+                                <h1 className="mb-5 text-4xl md:text-5xl  font-bold">Paharpur Buddhist Monastery</h1>
                                 <p className="mb-5">Explore the ancient places</p>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ const BannerSlider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-left text-white w-full flex justify-start py-20">
                             <div className="ml-10 max-w-2xl">
-                                <h1 className="mb-5 text-5xl font-bold">Sundarban Wildlife Safari</h1>
+                                <h1 className="mb-5 text-4xl md:text-5xl font-bold">Sundarban Wildlife Safari</h1>
                                 <p className="mb-5">Wildlife Safari</p>
                             </div>
                         </div>
@@ -84,7 +84,7 @@ const BannerSlider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-left text-white w-full flex justify-start py-20">
                             <div className="ml-10 max-w-2xl">
-                                <h1 className="mb-5 text-5xl font-bold">Trekking In Bandarban</h1>
+                                <h1 className="mb-5 text-4xl md:text-5xl font-bold">Trekking In Bandarban</h1>
                                 <p className="mb-5">Take a hiking trip with us</p>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ const BannerSlider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-left text-white w-full flex justify-start py-20">
                             <div className="ml-10 max-w-2xl">
-                                <h1 className="mb-5 text-5xl font-bold">Village Experience</h1>
+                                <h1 className="mb-5 text-4xl md:text-5xl font-bold">Village Experience</h1>
                                 <p className="mb-5">Explore the beautiful scenarios of Bangladeshi villages and take a look at their daily life closely</p>
                             </div>
                         </div>

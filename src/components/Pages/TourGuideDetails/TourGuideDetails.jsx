@@ -44,7 +44,7 @@ const TourGuideDetails = () => {
         <div>
             {/* guide info */}
             <div className="mx-auto py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="order-2">
+                <div className="md:order-2">
                     <img className="max-h-screen mx-auto" src={imgURL} alt="guide image" />
                 </div>
 

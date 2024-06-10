@@ -58,8 +58,6 @@ const Navbar = () => {
                                         role === 'admin' && <li><Link to='/dashboard/adminProfile'><MdDashboard /> Dashboard</Link></li>
                                     }
 
-
-                                    <li><Link to='/offer'>Offer</Link></li>
                                     <button onClick={handleLogout} className="btn btn-sm bg-ttSecondary text-white border-ttSecondary hover:bg-ttPrimary hover:text-ttSecondary hover:border-ttSecondary">Logout</button>
                                 </ul>
                             </div>

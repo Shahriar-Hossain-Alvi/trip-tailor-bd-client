@@ -5,7 +5,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdManageAccounts, MdOutlinePlaylistAddCheck } from "react-icons/md";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaHome } from "react-icons/fa";
 import { TbUserQuestion } from "react-icons/tb";
 import { AiOutlineSchedule } from "react-icons/ai";
 
@@ -58,13 +58,21 @@ const Dashboard = () => {
                     {
                         role === 'admin' && <ul id="dashboardMenu" className="menu uppercase lg:items-end text-lg space-y-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1">
                             <li><NavLink to='/dashboard/adminProfile'>
-                            <CgProfile /> My Profile</NavLink></li>
+                                <CgProfile /> My Profile</NavLink></li>
                             <li><NavLink to='addPackage'><IoMdAddCircleOutline /> Add Package</NavLink></li>
                             <li><NavLink to='manageUsers'><MdManageAccounts /> Manage  Users</NavLink></li>
                         </ul>
                     }
                 </div>
 
+
+                <div className="w-full mb-5">
+                    <ul className="menu uppercase text-lg">
+                        <li className="flex  hover:border-ttSecondary border rounded-xl">
+                            <Link className="w-full justify-center" to='/'><FaHome /> Home</Link>
+                        </li>
+                    </ul>
+                </div>
 
                 <div className="mb-10">
                     <button onClick={handleLogout} className="btn btn-wide bg-transparent text-white border-ttSecondary text-lg hover:bg-ttSecondary hover:text-ttPrimary hover:border-ttSecondary">Logout <IoLogOutOutline className="text-lg" /></button>

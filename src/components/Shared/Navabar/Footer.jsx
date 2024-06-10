@@ -1,6 +1,7 @@
 import logo from "../../../assets/images/Trip Tailor.png";
 import { GrYoutube } from "react-icons/gr";
 import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -8,15 +9,27 @@ const Footer = () => {
             <footer className="footer p-10 bg-ttPrimary text-white">
                 <nav>
                     <h6 className="footer-title">Menu</h6>
-                    <a className="link link-hover">Home</a>
-                    <a className="link link-hover">Community</a>
-                    <a className="link link-hover">Travel Stories</a>
+                    <Link to='/'>
+                        <p className="link link-hover">Home</p>
+                    </Link>
+                    <Link to='/community'>
+                        <p className="link link-hover">Community</p>
+                    </Link>
+                    <Link to='/allStories'>
+                        <p className="link link-hover">Travel Stories</p>
+                    </Link>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Packages</a>
+                    <Link to='/about'>
+                        <p className="link link-hover">About us</p>
+                    </Link>
+                    <Link to='/contact'>
+                        <p className="link link-hover">Contact</p>
+                    </Link>
+                    <Link to='/allPackages'>
+                        <p className="link link-hover">Packages</p>
+                    </Link>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Legal</h6>
