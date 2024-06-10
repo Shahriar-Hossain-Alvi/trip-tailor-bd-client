@@ -55,7 +55,7 @@ const OverViewSection = () => {
         <div className="mx-1 md:mx-2 overflow-hidden">
             <h2 className="text-xl font-medium text-center mb-8 text-ttPrimary">The videos below will give you a quick overview of our services</h2>
 
-            <div className='grid md:grid-cols-2 gap-5'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                 <animated.div
                     ref={sectionRef}
                     tabIndex="0"

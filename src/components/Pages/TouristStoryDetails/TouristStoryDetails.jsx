@@ -33,7 +33,7 @@ const TouristStoryDetails = () => {
             {/* story details */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-10">
                 <div className="lg:col-span-2">
-                    <h2 className="text-center text-4xl font-bold text-ttPrimary underline font-playfairDisplay tracking-wider mb-6">Title: {storyTitle}</h2>
+                    <h2 className="text-center text-2xl md:text-4xl font-bold text-ttPrimary underline font-playfairDisplay tracking-wider mb-6">Title: {storyTitle}</h2>
 
                     <p className="text-lg font-medium mb-3">{storyDetails}</p>
 

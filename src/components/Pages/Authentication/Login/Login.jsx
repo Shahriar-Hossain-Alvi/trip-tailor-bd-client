@@ -80,7 +80,7 @@ const Login = () => {
 
 
     return (
-        <div className="bg-ttPrimaryBg overflow-y-hidden  pb-20">
+        <div className="bg-ttPrimaryBg overflow-y-hidden  pb-20 overflow-hidden">
             <ToastContainer></ToastContainer>
 
             <div className="hero" style={{ backgroundImage: `url(${loginBanner})` }}>

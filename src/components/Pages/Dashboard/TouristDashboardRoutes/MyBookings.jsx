@@ -63,7 +63,7 @@ const MyBookings = () => {
 
             {
                 totalBookings > 3 && <div className="text-center mb-7">
-                    <h2 className="badge badge-success text-white">🎊 Congratulations you have got a discount offer 🎉</h2>
+                    <h2 className="badge badge-sm md:badge-md badge-success text-white">🎊 Congratulations you have got a discount offer 🎉</h2>
 
                     <CongratsConfetti></CongratsConfetti>
                 </div>

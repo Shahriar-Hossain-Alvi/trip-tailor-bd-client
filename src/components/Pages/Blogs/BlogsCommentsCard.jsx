@@ -7,7 +7,7 @@ const BlogsCommentsCard = ({ singleComment }) => {
 
     return (
         <div className='flex gap-2 justify-between mx-1 md:mx-2'>
-            <div className='w-20 flex justify-center pt-5'>
+            <div className='w-32 flex justify-center pt-5'>
                 <img className='rounded-full w-8 h-8' src={touristImgURL} alt="tourist image" />
             </div>
 

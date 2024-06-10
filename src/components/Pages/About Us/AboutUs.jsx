@@ -10,7 +10,7 @@ const AboutUs = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md py-24">
-                        <h2 className="text-7xl font-bold  tracking-wider font-playfairDisplay">About US</h2>
+                        <h2 className="text-6xl md:text-7xl font-bold  tracking-wider font-playfairDisplay">About Us</h2>
                     </div>
                 </div>
             </div>
