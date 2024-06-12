@@ -1,7 +1,7 @@
 # Trip Tailor Bangladesh
 
 - Admin username: admin@triptailor.com
-- Admin password: admin@triptailor.com
+- Admin password: 123456Aa
 
 - Live link: https://trip-tailor-bd.web.app/
 - Live link 2: https://trip-tailor-bd.firebaseapp.com/
