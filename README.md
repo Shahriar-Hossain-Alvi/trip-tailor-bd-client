@@ -41,3 +41,9 @@ Trip-Tailor-BD is a tour guide agency that offers different types of packages an
 - react-hook-form
 - react-toastify 
 - light gallery
+
+## If you want to clone and run this project on your local device use
+```
+npm install 
+npm run dev
+```
